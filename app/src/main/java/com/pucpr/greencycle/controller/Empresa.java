@@ -6,12 +6,12 @@ import android.os.Bundle;
 
 import com.pucpr.greencycle.R;
 
-public class Activity_Cliente extends AppCompatActivity {
+public class Empresa extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cliente);
-        setTitle("Activity Cliente");
+        setContentView(R.layout.activity_empresa);
+        setTitle("Activity Empresa");
     }
 }

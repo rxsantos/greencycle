@@ -32,7 +32,7 @@ public class SplashScreen extends AppCompatActivity {
                 // Esse método será executado sempre que o timer acabar
                 // E inicia a activity principal
                 Intent i = new Intent(SplashScreen.this,
-                        Activity_Login.class);
+                        Login.class);
                 startActivity(i);
 
                 // Fecha esta activity

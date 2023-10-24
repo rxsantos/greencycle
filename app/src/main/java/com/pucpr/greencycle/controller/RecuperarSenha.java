@@ -6,12 +6,11 @@ import android.os.Bundle;
 
 import com.pucpr.greencycle.R;
 
-public class Activity_Empresa extends AppCompatActivity {
+public class RecuperarSenha extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_empresa);
-        setTitle("Activity Empresa");
+        setContentView(R.layout.activity_recuperar_senha);
     }
 }

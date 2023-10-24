@@ -1,13 +1,8 @@
 package com.pucpr.greencycle.controller;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,15 +12,13 @@ import android.widget.EditText;
 import com.pucpr.greencycle.R;
 import com.pucpr.greencycle.model.DataModel;
 
-public class MainActivity extends AppCompatActivity {
-
+public class Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        setTitle("MainActivity");
-
+        setContentView(R.layout.activity_login);
+        setTitle("Activity Login");
     }
     public void loginButtonOnClick(View v){
         EditText usernameEditText = findViewById(R.id.usernameEditText);
@@ -39,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this,
                     getString(R.string.user_logged),
                     Toast.LENGTH_LONG).show();*/
-            Intent intent = new Intent(MainActivity.this, Activity_Cliente.class);
+            Intent intent = new Intent(Login.this, Cliente.class);
             startActivity(intent);
         }else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
             builder.setTitle(getString(R.string.error));
             builder.setMessage(getString(R.string.wrong_user));
             builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -57,4 +50,13 @@ public class MainActivity extends AppCompatActivity {
             builder.create().show();
         }
     }
+    public void registerButtonOnClick(View v){
+        Intent intent = new Intent(Login.this, Cadastro.class);
+        startActivity(intent);
+    }
+    public void recoverButtonOnClick(View v){
+        Intent intent = new Intent(Login.this, RecuperarSenha.class);
+        startActivity(intent);
+    }
+
 }
