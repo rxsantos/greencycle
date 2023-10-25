@@ -19,6 +19,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setTitle("Activity Login");
+        DataModel.getInstance().createDatabase(getApplicationContext());
     }
     public void loginButtonOnClick(View v){
         EditText usernameEditText = findViewById(R.id.usernameEditText);
@@ -65,7 +66,7 @@ public class Login extends AppCompatActivity {
         }
     }
     public void registerButtonOnClick(View v){
-        Intent intent = new Intent(Login.this, Cadastro.class);
+        Intent intent = new Intent(Login.this, Registro.class);
         startActivity(intent);
     }
     public void recoverButtonOnClick(View v){

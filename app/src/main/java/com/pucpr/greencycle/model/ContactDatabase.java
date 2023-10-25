@@ -17,10 +17,11 @@ public class ContactDatabase extends SQLiteOpenHelper {
     private static final String COL_NAME =  "name";
     private static final String COL_PHONE = "phone";
     private static final String COL_ADDRESS = "address";
-    private static final String COL_CITY = "address";
-    private static final String COL_ZIPCODE = "address";
-    private static final String COL_COUNTRY = "address";
+    private static final String COL_CITY = "city";
+    private static final String COL_ZIPCODE = "zipcode";
+    private static final String COL_COUNTRY = "country";
     private static final String COL_EMAIL = "email";
+    private static final String COL_PASSWORD = "password";
     private static final String COL_CPF = "cpf";
     private static final String COL_CNPJ = "cnpj";
     private static final String COL_RESIDUO = "residuo";
@@ -28,12 +29,13 @@ public class ContactDatabase extends SQLiteOpenHelper {
     private static final String COL_HORA = "hora";
 
     public ContactDatabase(Context context){
+
         super(context, DB_NAME,null,DB_VERSION);
     }
     public void onCreate(SQLiteDatabase sqLiteDatabase){
-        String query = "Create table if not exists " +DB_TABLE + "("+
+        String query = "Create table if not exists " +DB_TABLE + "( "+
                 COL_ID + " integer primary key autoincrement, "+
-                COL_OP + " integer, "+
+                COL_OP + " integer, "+ //1 Para Coleta - 2 Para Descarte
                 COL_NAME + " text, "+
                 COL_PHONE + " text, "+
                 COL_ADDRESS + " text, "+
@@ -41,11 +43,13 @@ public class ContactDatabase extends SQLiteOpenHelper {
                 COL_ZIPCODE + " text, "+
                 COL_COUNTRY + " text, "+
                 COL_EMAIL + " text, "+
+                COL_PASSWORD + " text, "+
                 COL_CPF + " text, "+
                 COL_CNPJ + " text, "+
                 COL_RESIDUO + " text, "+
                 COL_DATA + " text, "+
                 COL_HORA + " text)";
+        sqLiteDatabase.execSQL(query);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -61,6 +65,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values.put(COL_ZIPCODE,c.getZipcode());
         values.put(COL_COUNTRY,c.getCountry());
         values.put(COL_EMAIL,c.getEmail());
+        values.put(COL_PASSWORD,c.getPassword());
         values.put(COL_CPF,c.getCpf());
         values.put(COL_CNPJ,c.getCnpj());
         values.put(COL_RESIDUO,c.getResiduo());
@@ -82,6 +87,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values.put(COL_ZIPCODE,c.getZipcode());
         values.put(COL_COUNTRY,c.getCountry());
         values.put(COL_EMAIL,c.getEmail());
+        values.put(COL_PASSWORD,c.getPassword());
         values.put(COL_CPF,c.getCpf());
         values.put(COL_CNPJ,c.getCnpj());
         values.put(COL_RESIDUO,c.getResiduo());
@@ -100,9 +106,9 @@ public class ContactDatabase extends SQLiteOpenHelper {
             do{
                 long id = cursor.getLong(cursor.getColumnIndexOrThrow(COL_ID));
                 String op = cursor.getString(
-                        cursor.getColumnIndexOrThrow(COL_NAME));
-                String name = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_OP));
+                String name = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_NAME));
                 String phone = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_PHONE));
                 String address = cursor.getString(
@@ -115,6 +121,8 @@ public class ContactDatabase extends SQLiteOpenHelper {
                         cursor.getColumnIndexOrThrow(COL_COUNTRY));
                 String email = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_EMAIL));
+                String password = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_PASSWORD));
                 String cpf = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_CPF));
                 String cnpj = cursor.getString(
@@ -125,7 +133,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
                         cursor.getColumnIndexOrThrow(COL_DATA));
                 String hora = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_HORA));
-                contacts.add(new Contact(id, op, name, phone, address, email,cpf, cnpj,residuo,data,hora));
+                contacts.add(new Contact(id, op, name, phone, address, email, password, cpf, cnpj,residuo,data,hora));
             }while (cursor.moveToNext());
         }
         database.close();
@@ -141,6 +149,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values.put(COL_ZIPCODE,c.getZipcode());
         values.put(COL_COUNTRY,c.getCountry());
         values.put(COL_EMAIL,c.getEmail());
+        values.put(COL_PASSWORD,c.getPassword());
         values.put(COL_CPF,c.getCpf());
         values.put(COL_CNPJ,c.getCnpj());
         values.put(COL_RESIDUO,c.getResiduo());

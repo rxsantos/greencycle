@@ -3,12 +3,11 @@ package com.pucpr.greencycle.controller;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.RadioButton;
 
 import com.pucpr.greencycle.R;
 
-public class Cadastro extends AppCompatActivity {
+public class Formulario extends AppCompatActivity {
 
     RadioButton collector, delivery;
 

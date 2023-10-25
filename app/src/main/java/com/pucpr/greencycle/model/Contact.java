@@ -2,10 +2,10 @@ package com.pucpr.greencycle.model;
 
 public class Contact {
     private long id;
-    private String op, name, phone, address, city, zipcode, country, email, cpf, cnpj, residuo, data, hora;
+    private String op, name, phone, address, city, zipcode, country, email, password, cpf, cnpj, residuo, data, hora;
 
 
-    public Contact(String op, String name, String phone,  String address, String city, String zipcode, String country, String email, String cpf, String cnpj, String residuo, String data, String hora) {
+    public Contact(String op, String name, String phone,  String address, String city, String zipcode, String country, String email, String password, String cpf, String cnpj, String residuo, String data, String hora) {
         this.op = op;
         this.name = name;
         this.phone = phone;
@@ -14,6 +14,7 @@ public class Contact {
         this.zipcode = zipcode;
         this.country = country;
         this.email = email;
+        this.password = password;
         this.cpf = cpf;
         this.cnpj = cnpj;
         this.residuo = residuo;
@@ -21,7 +22,7 @@ public class Contact {
         this.hora = hora;
     }
 
-    public Contact(long id, String op, String name, String phone,  String address, String city, String zipcode, String country, String email, String cpf, String cnpj, String residuo, String data, String hora) {
+    public Contact(long id, String op, String name, String phone,  String address, String city, String zipcode, String country, String email, String password,String cpf, String cnpj, String residuo, String data, String hora) {
         this.id = id;
         this.op = op;
         this.name = name;
@@ -31,6 +32,7 @@ public class Contact {
         this.zipcode = zipcode;
         this.country = country;
         this.email = email;
+        this.password = password;
         this.cpf = cpf;
         this.cnpj = cnpj;
         this.residuo = residuo;
@@ -38,7 +40,7 @@ public class Contact {
         this.hora = hora;
     }
 
-    public Contact(long id, String op, String name, String phone, String address, String email, String cpf, String cnpj, String residuo, String data, String hora) {
+    public Contact(long id, String op, String name, String phone, String address, String email, String password,String cpf, String cnpj, String residuo, String data, String hora) {
     }
 
 
@@ -113,6 +115,13 @@ public class Contact {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getCpf() {

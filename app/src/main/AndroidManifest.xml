@@ -13,10 +13,13 @@
         android:theme="@style/Theme.MultiActivity"
         tools:targetApi="31">
         <activity
+            android:name=".controller.Registro"
+            android:exported="false" />
+        <activity
             android:name=".controller.RecuperarSenha"
             android:exported="false" />
         <activity
-            android:name=".controller.Cadastro"
+            android:name=".controller.Formulario"
             android:exported="false" />
         <activity
             android:name=".controller.Empresa"
@@ -36,8 +39,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>
