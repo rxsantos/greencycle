@@ -16,7 +16,6 @@ public class ContactDatabase extends SQLiteOpenHelper {
     private static final String COL_OP = "op";
     private static final String COL_NAME =  "name";
     private static final String COL_PHONE = "phone";
-    private static final String COL_WHATSAPP = "whatsapp";
     private static final String COL_ADDRESS = "address";
     private static final String COL_CITY = "address";
     private static final String COL_ZIPCODE = "address";
@@ -37,7 +36,6 @@ public class ContactDatabase extends SQLiteOpenHelper {
                 COL_OP + " integer, "+
                 COL_NAME + " text, "+
                 COL_PHONE + " text, "+
-                COL_WHATSAPP + " text, "+
                 COL_ADDRESS + " text, "+
                 COL_CITY + " text, "+
                 COL_ZIPCODE + " text, "+
@@ -58,7 +56,6 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values.put(COL_OP,c.getOp());
         values.put(COL_NAME,c.getName());
         values.put(COL_PHONE,c.getPhone());
-        values.put(COL_WHATSAPP,c.getWhatsapp());
         values.put(COL_ADDRESS,c.getAddress());
         values.put(COL_CITY,c.getCity());
         values.put(COL_ZIPCODE,c.getZipcode());
@@ -80,7 +77,6 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values.put(COL_OP,c.getOp());
         values.put(COL_NAME,c.getName());
         values.put(COL_PHONE,c.getPhone());
-        values.put(COL_WHATSAPP,c.getWhatsapp());
         values.put(COL_ADDRESS,c.getAddress());
         values.put(COL_CITY,c.getCity());
         values.put(COL_ZIPCODE,c.getZipcode());
@@ -109,8 +105,6 @@ public class ContactDatabase extends SQLiteOpenHelper {
                         cursor.getColumnIndexOrThrow(COL_OP));
                 String phone = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_PHONE));
-                String whatsapp = cursor.getString(
-                        cursor.getColumnIndexOrThrow(COL_WHATSAPP));
                 String address = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_ADDRESS));
                 String city = cursor.getString(
@@ -131,7 +125,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
                         cursor.getColumnIndexOrThrow(COL_DATA));
                 String hora = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_HORA));
-                contacts.add(new Contact(id, op, name, phone, whatsapp, address, email,cpf, cnpj,residuo,data,hora));
+                contacts.add(new Contact(id, op, name, phone, address, email,cpf, cnpj,residuo,data,hora));
             }while (cursor.moveToNext());
         }
         database.close();
@@ -142,7 +136,6 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values.put(COL_OP,c.getOp());
         values.put(COL_NAME,c.getName());
         values.put(COL_PHONE,c.getPhone());
-        values.put(COL_WHATSAPP,c.getWhatsapp());
         values.put(COL_ADDRESS,c.getAddress());
         values.put(COL_CITY,c.getCity());
         values.put(COL_ZIPCODE,c.getZipcode());

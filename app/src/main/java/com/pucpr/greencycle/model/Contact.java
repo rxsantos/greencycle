@@ -2,15 +2,13 @@ package com.pucpr.greencycle.model;
 
 public class Contact {
     private long id;
-    private String op, name, phone, whatsapp, address, city, zipcode, country, email, cpf, cnpj, residuo, data, hora;
+    private String op, name, phone, address, city, zipcode, country, email, cpf, cnpj, residuo, data, hora;
 
-    boolean collector, delivery;
 
-    public Contact(String op, String name, String phone, String whatsapp, String address, String city, String zipcode, String country, String email, String cpf, String cnpj, String residuo, String data, String hora) {
+    public Contact(String op, String name, String phone,  String address, String city, String zipcode, String country, String email, String cpf, String cnpj, String residuo, String data, String hora) {
         this.op = op;
         this.name = name;
         this.phone = phone;
-        this.whatsapp = whatsapp;
         this.address = address;
         this.city = city;
         this.zipcode = zipcode;
@@ -23,12 +21,11 @@ public class Contact {
         this.hora = hora;
     }
 
-    public Contact(long id, String op, String name, String phone, String whatsapp, String address, String city, String zipcode, String country, String email, String cpf, String cnpj, String residuo, String data, String hora) {
+    public Contact(long id, String op, String name, String phone,  String address, String city, String zipcode, String country, String email, String cpf, String cnpj, String residuo, String data, String hora) {
         this.id = id;
         this.op = op;
         this.name = name;
         this.phone = phone;
-        this.whatsapp = whatsapp;
         this.address = address;
         this.city = city;
         this.zipcode = zipcode;
@@ -41,7 +38,7 @@ public class Contact {
         this.hora = hora;
     }
 
-    public Contact(long id, String op, String name, String phone, String whatsapp, String address, String email, String cpf, String cnpj, String residuo, String data, String hora) {
+    public Contact(long id, String op, String name, String phone, String address, String email, String cpf, String cnpj, String residuo, String data, String hora) {
     }
 
 
@@ -77,13 +74,6 @@ public class Contact {
         this.phone = phone;
     }
 
-    public String getWhatsapp() {
-        return whatsapp;
-    }
-
-    public void setWhatsapp(String whatsapp) {
-        this.whatsapp = whatsapp;
-    }
 
     public String getAddress() {
         return address;

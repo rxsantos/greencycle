@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">Greencycle</string>
-    <string name="login_title">Login</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
+    <string name="login_title">Acesso GreenCycle</string>
+    <string name="username">Usuário</string>
+    <string name="password">Senha</string>
     <string name="login">Login</string>
     <string name="user_logged">User logged</string>
-    <string name="error">Error</string>
-    <string name="wrong_user">User or Password does not match!</string>
+    <string name="error">Erro!</string>
+    <string name="wrong_user">Usuário ou senha inválidos!</string>
     <string name="go_to_second_activity_button">Go To Second Activity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_username">Usuário Inválido!</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 </resources>
