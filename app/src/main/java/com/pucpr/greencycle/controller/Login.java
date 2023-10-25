@@ -34,7 +34,21 @@ public class Login extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();*/
             Intent intent = new Intent(Login.this, Cliente.class);
             startActivity(intent);
-        }else {
+        }else if (username.equals(DataModel.getInstance().comDetails.getUsername()) &&
+                password.equals(DataModel.getInstance().comDetails.getPassword())){
+            Intent intent = new Intent(Login.this, Empresa.class);
+            startActivity(intent);
+
+        }else if (username.equals(DataModel.getInstance().userDetails01.getUsername()) &&
+                password.equals(DataModel.getInstance().userDetails01.getPassword())){
+            Intent intent = new Intent(Login.this, Cliente.class);
+            startActivity(intent);
+
+        }else if(username.equals(DataModel.getInstance().comDetails01.getUsername()) &&
+                password.equals(DataModel.getInstance().comDetails01.getPassword())){
+            Intent intent = new Intent(Login.this, Empresa.class);
+            startActivity(intent);
+        }else{
             AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
             builder.setTitle(getString(R.string.error));
             builder.setMessage(getString(R.string.wrong_user));

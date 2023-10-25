@@ -11,7 +11,7 @@ import com.pucpr.greencycle.R;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private static int SPLASH_TIME_OUT = 4000;
+    private static int SPLASH_TIME_OUT = 3000;
     ImageView imageView;
 
     @Override

@@ -144,6 +144,9 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values.put(COL_PHONE,c.getPhone());
         values.put(COL_WHATSAPP,c.getWhatsapp());
         values.put(COL_ADDRESS,c.getAddress());
+        values.put(COL_CITY,c.getCity());
+        values.put(COL_ZIPCODE,c.getZipcode());
+        values.put(COL_COUNTRY,c.getCountry());
         values.put(COL_EMAIL,c.getEmail());
         values.put(COL_CPF,c.getCpf());
         values.put(COL_CNPJ,c.getCnpj());

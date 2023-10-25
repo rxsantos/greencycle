@@ -2,8 +2,9 @@ package com.pucpr.greencycle.model;
 
 public class Contact {
     private long id;
-
     private String op, name, phone, whatsapp, address, city, zipcode, country, email, cpf, cnpj, residuo, data, hora;
+
+    boolean collector, delivery;
 
     public Contact(String op, String name, String phone, String whatsapp, String address, String city, String zipcode, String country, String email, String cpf, String cnpj, String residuo, String data, String hora) {
         this.op = op;
