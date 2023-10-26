@@ -13,87 +13,48 @@ public class ContactDatabase extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
     private static final String DB_TABLE = "Contact";
     private static final String COL_ID = "id";
-    private static final String COL_OP = "op";
     private static final String COL_NAME =  "name";
-    private static final String COL_PHONE = "phone";
-    private static final String COL_ADDRESS = "address";
-    private static final String COL_CITY = "city";
-    private static final String COL_ZIPCODE = "zipcode";
-    private static final String COL_COUNTRY = "country";
     private static final String COL_EMAIL = "email";
     private static final String COL_PASSWORD = "password";
-    private static final String COL_CPF = "cpf";
-    private static final String COL_CNPJ = "cnpj";
-    private static final String COL_RESIDUO = "residuo";
-    private static final String COL_DATA = "data";
-    private static final String COL_HORA = "hora";
+    private static final String COL_OP = "op";
 
+    private Context context;
     public ContactDatabase(Context context){
-
         super(context, DB_NAME,null,DB_VERSION);
     }
     public void onCreate(SQLiteDatabase sqLiteDatabase){
-        String query = "Create table if not exists " +DB_TABLE + "( "+
-                COL_ID + " integer primary key autoincrement, "+
-                COL_OP + " integer, "+ //1 Para Coleta - 2 Para Descarte
-                COL_NAME + " text, "+
-                COL_PHONE + " text, "+
-                COL_ADDRESS + " text, "+
-                COL_CITY + " text, "+
-                COL_ZIPCODE + " text, "+
-                COL_COUNTRY + " text, "+
-                COL_EMAIL + " text, "+
-                COL_PASSWORD + " text, "+
-                COL_CPF + " text, "+
-                COL_CNPJ + " text, "+
-                COL_RESIDUO + " text, "+
-                COL_DATA + " text, "+
-                COL_HORA + " text)";
+        String query = "Create Table if not exists "+DB_TABLE + "( "+
+                COL_ID + " Integer primary key autoincrement, "+
+                COL_NAME + " TEXT, "+
+                COL_EMAIL + " TEXT, "+
+                COL_PASSWORD + " TEXT, "+
+                COL_OP + " TEXT)";
         sqLiteDatabase.execSQL(query);
     }
+
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
 
     }
     public long createContactInDB(Contact c){
+        SQLiteDatabase database = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COL_OP,c.getOp());
         values.put(COL_NAME,c.getName());
-        values.put(COL_PHONE,c.getPhone());
-        values.put(COL_ADDRESS,c.getAddress());
-        values.put(COL_CITY,c.getCity());
-        values.put(COL_ZIPCODE,c.getZipcode());
-        values.put(COL_COUNTRY,c.getCountry());
         values.put(COL_EMAIL,c.getEmail());
         values.put(COL_PASSWORD,c.getPassword());
-        values.put(COL_CPF,c.getCpf());
-        values.put(COL_CNPJ,c.getCnpj());
-        values.put(COL_RESIDUO,c.getResiduo());
-        values.put(COL_DATA,c.getData());
-        values.put(COL_HORA,c.getHora());
-        SQLiteDatabase database = getWritableDatabase();
+        values.put(COL_OP,c.getOp());
         long id = database.insert(DB_TABLE,null,values);
         database.close();
         return id;
     }
     public long insertContactInDB(Contact c){
+        SQLiteDatabase database = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL_ID,c.getId());
-        values.put(COL_OP,c.getOp());
         values.put(COL_NAME,c.getName());
-        values.put(COL_PHONE,c.getPhone());
-        values.put(COL_ADDRESS,c.getAddress());
-        values.put(COL_CITY,c.getCity());
-        values.put(COL_ZIPCODE,c.getZipcode());
-        values.put(COL_COUNTRY,c.getCountry());
         values.put(COL_EMAIL,c.getEmail());
         values.put(COL_PASSWORD,c.getPassword());
-        values.put(COL_CPF,c.getCpf());
-        values.put(COL_CNPJ,c.getCnpj());
-        values.put(COL_RESIDUO,c.getResiduo());
-        values.put(COL_DATA,c.getData());
-        values.put(COL_HORA,c.getHora());
-        SQLiteDatabase database = getWritableDatabase();
+        values.put(COL_OP,c.getOp());
         long id = database.insert(DB_TABLE,null,values);
         database.close();
         return id;
@@ -105,66 +66,36 @@ public class ContactDatabase extends SQLiteOpenHelper {
         if (cursor.moveToFirst()){
             do{
                 long id = cursor.getLong(cursor.getColumnIndexOrThrow(COL_ID));
-                String op = cursor.getString(
-                        cursor.getColumnIndexOrThrow(COL_OP));
                 String name = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_NAME));
-                String phone = cursor.getString(
-                        cursor.getColumnIndexOrThrow(COL_PHONE));
-                String address = cursor.getString(
-                        cursor.getColumnIndexOrThrow(COL_ADDRESS));
-                String city = cursor.getString(
-                        cursor.getColumnIndexOrThrow(COL_CITY));
-                String zipcode = cursor.getString(
-                        cursor.getColumnIndexOrThrow(COL_ZIPCODE));
-                String country = cursor.getString(
-                        cursor.getColumnIndexOrThrow(COL_COUNTRY));
                 String email = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_EMAIL));
                 String password = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_PASSWORD));
-                String cpf = cursor.getString(
-                        cursor.getColumnIndexOrThrow(COL_CPF));
-                String cnpj = cursor.getString(
-                        cursor.getColumnIndexOrThrow(COL_CNPJ));
-                String residuo = cursor.getString(
-                        cursor.getColumnIndexOrThrow(COL_RESIDUO));
-                String data = cursor.getString(
-                        cursor.getColumnIndexOrThrow(COL_DATA));
-                String hora = cursor.getString(
-                        cursor.getColumnIndexOrThrow(COL_HORA));
-                contacts.add(new Contact(id, op, name, phone, address, email, password, cpf, cnpj,residuo,data,hora));
+                String op = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_OP));
+                contacts.add(new Contact(id, name, email, password, op));
             }while (cursor.moveToNext());
         }
         database.close();
         return contacts;
     }
     public int updateContactInDB(Contact c){
+        SQLiteDatabase database = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COL_OP,c.getOp());
         values.put(COL_NAME,c.getName());
-        values.put(COL_PHONE,c.getPhone());
-        values.put(COL_ADDRESS,c.getAddress());
-        values.put(COL_CITY,c.getCity());
-        values.put(COL_ZIPCODE,c.getZipcode());
-        values.put(COL_COUNTRY,c.getCountry());
         values.put(COL_EMAIL,c.getEmail());
         values.put(COL_PASSWORD,c.getPassword());
-        values.put(COL_CPF,c.getCpf());
-        values.put(COL_CNPJ,c.getCnpj());
-        values.put(COL_RESIDUO,c.getResiduo());
-        values.put(COL_DATA,c.getData());
-        values.put(COL_HORA,c.getHora());
+        values.put(COL_OP,c.getOp());
         String id = String.valueOf(c.getId());
-        SQLiteDatabase database = getWritableDatabase();
         int count = database.update(DB_TABLE, values,
                 COL_ID + "=?", new String[]{id});
         database.close();
         return count;
     }
     public int removeContactInDB(Contact c){
-        String id = String.valueOf(c.getId());
         SQLiteDatabase database = getWritableDatabase();
+        String id = String.valueOf(c.getId());
         int count = database.delete(DB_TABLE,
                 COL_ID + "=?", new String[]{id});
         database.close();

@@ -1,11 +1,76 @@
 package com.pucpr.greencycle.model;
 
+import android.util.Log;
+
 public class Contact {
     private long id;
+
+    private String name, email, password, op;
+
+    public Contact(long id, String name, String email, String password, String op) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.op = op;
+    }
+
+    public Contact(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.op = op;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getOp() {
+        return op;
+    }
+
+    public void setOp(String op) {
+        this.op = op;
+    }
+
+    public void print(){
+        Log.v("SQLDatabase", "Contact["+id+"]:"+name+" Email: "+email+ " Password: "+password);
+    }
+    /*
     private String op, name, phone, address, city, zipcode, country, email, password, cpf, cnpj, residuo, data, hora;
 
 
-    public Contact(String op, String name, String phone,  String address, String city, String zipcode, String country, String email, String password, String cpf, String cnpj, String residuo, String data, String hora) {
+
+    public Contact(String op, String name, String phone, String address, String city, String zipcode, String country, String email, String password, String cpf, String cnpj, String residuo, String data, String hora) {
         this.op = op;
         this.name = name;
         this.phone = phone;
@@ -22,7 +87,7 @@ public class Contact {
         this.hora = hora;
     }
 
-    public Contact(long id, String op, String name, String phone,  String address, String city, String zipcode, String country, String email, String password,String cpf, String cnpj, String residuo, String data, String hora) {
+    public Contact(long id, String op, String name, String phone, String address, String city, String zipcode, String country, String email, String password, String cpf, String cnpj, String residuo, String data, String hora) {
         this.id = id;
         this.op = op;
         this.name = name;
@@ -41,6 +106,13 @@ public class Contact {
     }
 
     public Contact(long id, String op, String name, String phone, String address, String email, String password,String cpf, String cnpj, String residuo, String data, String hora) {
+    }
+
+    public Contact(String name, String email, String password) {
+
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
 
@@ -75,7 +147,6 @@ public class Contact {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
 
     public String getAddress() {
         return address;
@@ -163,4 +234,10 @@ public class Contact {
     public void setHora(String hora) {
         this.hora = hora;
     }
+
+    public void print(){
+        Log.v("SQLDatabase", "Contact["+id+"]:"+name);
+    }
+
+     */
 }

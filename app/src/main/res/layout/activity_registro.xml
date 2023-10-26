@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.Registro">
+    tools:context=".controller.Cadastro">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:layout_height="50dp" />
 
         <EditText
-            android:id="@+id/editTextFullName"
+            android:id="@+id/fullnameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -58,7 +58,7 @@
             android:layout_height="10dp" />
 
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/passwdEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -93,7 +93,7 @@
                 android:layout_height="match_parent" />
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/coleta"
                 android:layout_width="48dp"
                 android:layout_height="wrap_content" />
 
@@ -102,7 +102,7 @@
                 android:layout_height="match_parent" />
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/descarte"
                 android:layout_width="48dp"
                 android:layout_height="wrap_content" />
 
@@ -153,10 +153,11 @@
             android:layout_height="30dp" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/registrarButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Salvar" />
+            android:onClick="cadastroButtonOnClick"
+            android:text="Cadastrar" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,7 @@
         android:theme="@style/Theme.MultiActivity"
         tools:targetApi="31">
         <activity
-            android:name=".controller.Registro"
+            android:name=".controller.Cadastro"
             android:exported="false" />
         <activity
             android:name=".controller.RecuperarSenha"

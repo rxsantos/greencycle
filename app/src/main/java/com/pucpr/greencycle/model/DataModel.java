@@ -24,11 +24,9 @@ public class DataModel {
     }
 
     public Contact getContact(int pos){
-
         return contacts.get(pos);
     }
     public int getContactSize(){
-
         return contacts.size();
     }
     public boolean addContact(Contact c){
