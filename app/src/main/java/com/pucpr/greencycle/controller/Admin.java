@@ -7,15 +7,15 @@ import android.widget.RadioButton;
 
 import com.pucpr.greencycle.R;
 
-public class Formulario extends AppCompatActivity {
+public class Admin extends AppCompatActivity {
 
     RadioButton collector, delivery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro);
-        setTitle("Activity Cadastro");
+        setContentView(R.layout.activity_admin);
+        setTitle("Activity Administrador");
         //collector = (RadioButton) findViewById(R.id.editRadioOp1);
         //delivery = (RadioButton) findViewById(R.id.editRadioOp2);
 

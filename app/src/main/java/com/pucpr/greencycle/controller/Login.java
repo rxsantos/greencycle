@@ -1,9 +1,7 @@
 package com.pucpr.greencycle.controller;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,11 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.pucpr.greencycle.R;
 import com.pucpr.greencycle.model.Contact;
 import com.pucpr.greencycle.model.ContactDatabase;
-import com.pucpr.greencycle.model.DataModel;
 
 import java.util.ArrayList;
 
@@ -30,7 +26,7 @@ public class Login extends AppCompatActivity {
     Boolean EditTextEmptyHolder;
     ContactDatabase database;
     SQLiteDatabase sqLiteDatabaseObj;
-    String TempPassword = "Usuário não Encontrado";
+    String TempPassword = "Usuário não Encontrado", op = "3";
     public static final String UserEmail = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +41,24 @@ public class Login extends AppCompatActivity {
 
         database = new ContactDatabase(this);
 
-        //database.createContactInDB(new Contact("filipe","filipe@gmail.com", "1234"));
+        //database.createContactInDB(new Contact("Roberto Xavier","roberto.xavier@gmail.com", "1234", "3"));
 
-        /*ArrayList<Contact>contacts = database.getContactsFromDB();
+
+        ArrayList<Contact>contacts = database.getContactsFromDB();
         for (Contact c:contacts) {
             c.print();
-        }*/
+
+        }
+        //contacts.get(2).setOp("3");
+        //database.updateContactInDB(contacts.get(2));
+        //database.removeContactInDB(contacts.get(0));
+        //database.removeContactInDB(contacts.get(1));
+        //database.removeContactInDB(contacts.get(2));
+        //database.removeContactInDB(contacts.get(4));
+        //database.removeContactInDB(contacts.get(5));
+        //database.removeContactInDB(contacts.get(0));
+        //database.removeContactInDB(contacts.get(0));
+        //contacts.get(53).setName("Roberto Santos");
 
 
 
@@ -68,7 +76,7 @@ public class Login extends AppCompatActivity {
 
 
     public void registerButtonOnClick(View v){
-        Intent intent = new Intent(Login.this, Cadastro.class);
+        Intent intent = new Intent(Login.this, Registro.class);
         startActivity(intent);
     }
     public void recoverButtonOnClick(View v){
@@ -90,6 +98,9 @@ public class Login extends AppCompatActivity {
                     cursor.moveToFirst();
                     // Storing Password associated with entered email.
                     TempPassword = cursor.getString(cursor.getColumnIndexOrThrow("password"));
+                    op = cursor.getString(cursor.getColumnIndexOrThrow("op"));
+                    System.out.println(op);
+
                     // Closing cursor.
                     cursor.close();
                 }
@@ -122,12 +133,29 @@ public class Login extends AppCompatActivity {
     public void CheckFinalResult(){
         if(TempPassword.equalsIgnoreCase(PasswordHolder))
         {
-            Toast.makeText(Login.this,"Login bem sucedido",Toast.LENGTH_LONG).show();
-            // Going to Dashboard activity after login success message.
-            Intent intent = new Intent(Login.this, Cliente.class);
-            // Sending Email to Dashboard Activity using intent.
-            intent.putExtra(UserEmail, EmailHolder);
-            startActivity(intent);
+            if(op.equals("1")){
+                Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
+                // Going to Dashboard activity after login success message.
+                Intent intent = new Intent(Login.this, Cliente.class);
+                // Sending Email to Dashboard Activity using intent.
+                intent.putExtra(UserEmail, EmailHolder);
+                startActivity(intent);
+            }else if(op.equals("2")){
+                Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
+                // Going to Dashboard activity after login success message.
+                Intent intent = new Intent(Login.this, Empresa.class);
+                // Sending Email to Dashboard Activity using intent.
+                intent.putExtra(UserEmail, EmailHolder);
+                startActivity(intent);
+            }else{
+                Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
+                // Going to Dashboard activity after login success message.
+                Intent intent = new Intent(Login.this, Admin.class);
+                // Sending Email to Dashboard Activity using intent.
+                intent.putExtra(UserEmail, EmailHolder);
+                startActivity(intent);
+            }
+
         }
         else {
             Toast.makeText(Login.this,"Nome de usuário ou senha estão incorretos, tente novamente!",Toast.LENGTH_LONG).show();

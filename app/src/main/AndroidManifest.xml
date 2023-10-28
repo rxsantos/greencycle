@@ -13,13 +13,16 @@
         android:theme="@style/Theme.MultiActivity"
         tools:targetApi="31">
         <activity
-            android:name=".controller.Cadastro"
+            android:name=".controller.ListUsers"
+            android:exported="false" />
+        <activity
+            android:name=".controller.Registro"
             android:exported="false" />
         <activity
             android:name=".controller.RecuperarSenha"
             android:exported="false" />
         <activity
-            android:name=".controller.Formulario"
+            android:name=".controller.Admin"
             android:exported="false" />
         <activity
             android:name=".controller.Empresa"

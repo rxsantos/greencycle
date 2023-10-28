@@ -1,11 +1,8 @@
 package com.pucpr.greencycle.controller;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -17,17 +14,15 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.pucpr.greencycle.R;
-import com.pucpr.greencycle.model.Contact;
 import com.pucpr.greencycle.model.ContactDatabase;
-import com.pucpr.greencycle.model.DataModel;
 
-public class Cadastro extends AppCompatActivity {
+public class Registro extends AppCompatActivity {
 
     EditText Name, Email, Password;
     Button Cadastro;
     RadioButton Coleta, Descarte;
-    String NameHolder, EmailHolder, PasswordHolder;
-    Boolean EditTextEmptyHolder, Op;
+    String NameHolder, EmailHolder, PasswordHolder, Op;
+    Boolean EditTextEmptyHolder;
     SQLiteDatabase sqLiteDatabaseObj;
     String SQLiteDataBaseQueryHolder ;
     ContactDatabase database;
@@ -40,7 +35,7 @@ public class Cadastro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
-        setTitle("Activity Cadastro");
+        setTitle("Activity Registro");
 
         Name = findViewById(R.id.fullnameEditText);
         Email = findViewById(R.id.emailEditText);
@@ -109,13 +104,13 @@ public class Cadastro extends AppCompatActivity {
             sqLiteDatabaseObj.close();
 
             //Printing toast message after done insert
-            Toast.makeText(Cadastro.this, "Usuário Cadastrado com Sucesso!", Toast.LENGTH_LONG).show();
+            Toast.makeText(Registro.this, "Usuário Cadastrado com Sucesso!", Toast.LENGTH_LONG).show();
         }
         // This block will execute if any of the registration EditText is empty.
         else {
 
             //Printing toast message if any of EditTExt is Empty
-            Toast.makeText(Cadastro.this, "Por favor, preencha todos os campos obrigatórios.", Toast.LENGTH_LONG).show();
+            Toast.makeText(Registro.this, "Por favor, preencha todos os campos obrigatórios.", Toast.LENGTH_LONG).show();
         }
 
     }
@@ -134,12 +129,12 @@ public class Cadastro extends AppCompatActivity {
         EmailHolder = Email.getText().toString();
         PasswordHolder = Password.getText().toString();
         if (Coleta.isChecked()){
-            Op = true;
-        }else{
-            Op = false;
+            Op = "1";
+        }else if(Descarte.isChecked()){
+            Op = "2";
         }
 
-        if (TextUtils.isEmpty(NameHolder) || TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(PasswordHolder)){
+        if (TextUtils.isEmpty(NameHolder) || TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(PasswordHolder) || TextUtils.isEmpty(Op)){
             EditTextEmptyHolder = false;
         } else{
             EditTextEmptyHolder = true;
@@ -173,7 +168,7 @@ public class Cadastro extends AppCompatActivity {
         if (F_Result.equalsIgnoreCase("Email Encontrado")){
 
             // If email is exists then toast msg will display.
-            Toast.makeText(Cadastro.this,"Email já existe. Utilize outro email!",Toast.LENGTH_LONG).show();
+            Toast.makeText(Registro.this,"Email já existe. Utilize outro email!",Toast.LENGTH_LONG).show();
         }else{
             // If email already dose n't exists then user registration details will entered to SQLite database.
             InsertDataIntoSQLiteDatabase();

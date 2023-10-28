@@ -15,7 +15,7 @@ public class Contact {
         this.op = op;
     }
 
-    public Contact(String name, String email, String password) {
+    public Contact(String name, String email, String password,String op) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -63,7 +63,7 @@ public class Contact {
     }
 
     public void print(){
-        Log.v("SQLDatabase", "Contact["+id+"]:"+name+" Email: "+email+ " Password: "+password);
+        Log.v("SQLDatabase", "Contact["+id+"]:"+name+" Email: "+email+ " Password: "+password+ " Tipo: " +op);
     }
     /*
     private String op, name, phone, address, city, zipcode, country, email, password, cpf, cnpj, residuo, data, hora;
