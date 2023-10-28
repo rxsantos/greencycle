@@ -20,6 +20,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
 
     private Context context;
     public ContactDatabase(Context context){
+
         super(context, DB_NAME,null,DB_VERSION);
     }
     public void onCreate(SQLiteDatabase sqLiteDatabase){

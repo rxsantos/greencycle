@@ -42,13 +42,15 @@ public class Login extends AppCompatActivity {
         Login = (Button) findViewById(R.id.loginButton);
         Cadastrar = (Button) findViewById(R.id.cadastrarButton);
 
-        //DataModel.getInstance().createDatabase(getApplicationContext());
+
         database = new ContactDatabase(this);
 
-        ArrayList<Contact>contacts = database.getContactsFromDB();
+        //database.createContactInDB(new Contact("filipe","filipe@gmail.com", "1234"));
+
+        /*ArrayList<Contact>contacts = database.getContactsFromDB();
         for (Contact c:contacts) {
             c.print();
-        }
+        }*/
 
 
 
