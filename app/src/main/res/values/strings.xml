@@ -20,6 +20,17 @@
     <string name="cadastrar">CADASTRAR</string>
     <string name="ainda_nao_tem_cadastro">Ainda não tem cadastro?</string>
     <string name="esqueceu_a_senha">Esqueceu a sua senha? Clique Aqui!</string>
+    <string name="undo">Undo</string>
+    <string name="remove_contact">Contato Removido!</string>
+    <string name="name">Nome</string>
+    <string name="email">Email</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="editar">Editar</string>
+    <string name="remover">Remover</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="textview4">TextView4</string>
+
+
 </resources>
 
 

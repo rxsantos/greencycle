@@ -13,6 +13,15 @@
         android:theme="@style/Theme.MultiActivity"
         tools:targetApi="31">
         <activity
+            android:name=".controller.Recyclerview"
+            android:exported="false" />
+        <activity
+            android:name=".activity_details"
+            android:exported="false" />
+        <activity
+            android:name=".controller.Recyclerview"
+            android:exported="false" />
+        <activity
             android:name=".controller.ListUsers"
             android:exported="false" />
         <activity

@@ -49,9 +49,9 @@ public class Login extends AppCompatActivity {
             c.print();
 
         }
-        //contacts.get(2).setOp("3");
-        //database.updateContactInDB(contacts.get(2));
-        //database.removeContactInDB(contacts.get(0));
+        //contacts.get(6).setOp("Empresa");
+        //database.updateContactInDB(contacts.get(6));
+        //database.removeContactInDB(contacts.get(4));
         //database.removeContactInDB(contacts.get(1));
         //database.removeContactInDB(contacts.get(2));
         //database.removeContactInDB(contacts.get(4));
@@ -133,14 +133,14 @@ public class Login extends AppCompatActivity {
     public void CheckFinalResult(){
         if(TempPassword.equalsIgnoreCase(PasswordHolder))
         {
-            if(op.equals("1")){
+            if(op.equals("Empresa")){
                 Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
                 // Going to Dashboard activity after login success message.
                 Intent intent = new Intent(Login.this, Cliente.class);
                 // Sending Email to Dashboard Activity using intent.
                 intent.putExtra(UserEmail, EmailHolder);
                 startActivity(intent);
-            }else if(op.equals("2")){
+            }else if(op.equals("Cliente")){
                 Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
                 // Going to Dashboard activity after login success message.
                 Intent intent = new Intent(Login.this, Empresa.class);
@@ -150,7 +150,7 @@ public class Login extends AppCompatActivity {
             }else{
                 Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
                 // Going to Dashboard activity after login success message.
-                Intent intent = new Intent(Login.this, Admin.class);
+                Intent intent = new Intent(Login.this, Recyclerview.class);
                 // Sending Email to Dashboard Activity using intent.
                 intent.putExtra(UserEmail, EmailHolder);
                 startActivity(intent);

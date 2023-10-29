@@ -110,7 +110,7 @@ public class Registro extends AppCompatActivity {
         else {
 
             //Printing toast message if any of EditTExt is Empty
-            Toast.makeText(Registro.this, "Por favor, preencha todos os campos obrigatórios.", Toast.LENGTH_LONG).show();
+            Toast.makeText(Registro.this, "Por favor, preencha os campos obrigatórios.", Toast.LENGTH_LONG).show();
         }
 
     }
@@ -129,9 +129,9 @@ public class Registro extends AppCompatActivity {
         EmailHolder = Email.getText().toString();
         PasswordHolder = Password.getText().toString();
         if (Coleta.isChecked()){
-            Op = "1";
+            Op = "Empresa";
         }else if(Descarte.isChecked()){
-            Op = "2";
+            Op = "Cliente";
         }
 
         if (TextUtils.isEmpty(NameHolder) || TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(PasswordHolder) || TextUtils.isEmpty(Op)){
@@ -168,7 +168,7 @@ public class Registro extends AppCompatActivity {
         if (F_Result.equalsIgnoreCase("Email Encontrado")){
 
             // If email is exists then toast msg will display.
-            Toast.makeText(Registro.this,"Email já existe. Utilize outro email!",Toast.LENGTH_LONG).show();
+            Toast.makeText(Registro.this,"Email já foi utilizado. Tente outro email!",Toast.LENGTH_LONG).show();
         }else{
             // If email already dose n't exists then user registration details will entered to SQLite database.
             InsertDataIntoSQLiteDatabase();
