@@ -112,7 +112,8 @@
             <RadioButton
                 android:id="@+id/coleta"
                 android:layout_width="48dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <Space
                 android:layout_width="180dp"

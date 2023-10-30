@@ -7,15 +7,15 @@ import android.widget.RadioButton;
 
 import com.pucpr.greencycle.R;
 
-public class Admin extends AppCompatActivity {
+public class FormEmpresa extends AppCompatActivity {
 
     RadioButton collector, delivery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin);
-        setTitle("Activity Administrador");
+        setContentView(R.layout.activity_form_empresa);
+        setTitle("Activity Formulário Empresa");
         //collector = (RadioButton) findViewById(R.id.editRadioOp1);
         //delivery = (RadioButton) findViewById(R.id.editRadioOp2);
 

@@ -26,7 +26,7 @@ public class Login extends AppCompatActivity {
     Boolean EditTextEmptyHolder;
     ContactDatabase database;
     SQLiteDatabase sqLiteDatabaseObj;
-    String TempPassword = "Usuário não Encontrado", op = "3";
+    String TempPassword = "Usuário não Encontrado", op = "Admin";
     public static final String UserEmail = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,14 +133,14 @@ public class Login extends AppCompatActivity {
     public void CheckFinalResult(){
         if(TempPassword.equalsIgnoreCase(PasswordHolder))
         {
-            if(op.equals("Empresa")){
+            if(op.equals("Cliente")){
                 Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
                 // Going to Dashboard activity after login success message.
                 Intent intent = new Intent(Login.this, Cliente.class);
                 // Sending Email to Dashboard Activity using intent.
                 intent.putExtra(UserEmail, EmailHolder);
                 startActivity(intent);
-            }else if(op.equals("Cliente")){
+            }else if(op.equals("Empresa")){
                 Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
                 // Going to Dashboard activity after login success message.
                 Intent intent = new Intent(Login.this, Empresa.class);
@@ -150,7 +150,7 @@ public class Login extends AppCompatActivity {
             }else{
                 Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
                 // Going to Dashboard activity after login success message.
-                Intent intent = new Intent(Login.this, Recyclerview.class);
+                Intent intent = new Intent(Login.this, RecyclerviewAdmin.class);
                 // Sending Email to Dashboard Activity using intent.
                 intent.putExtra(UserEmail, EmailHolder);
                 startActivity(intent);

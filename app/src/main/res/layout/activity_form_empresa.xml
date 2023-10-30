@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:context=".controller.Admin">
+    android:textAlignment="textStart"
+    tools:context=".controller.FormEmpresa">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ScrollView
-            android:id="@+id/scrollView"
+            android:id="@+id/scrollViewEmp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
@@ -31,7 +32,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck">
+            tools:ignore="SpeakableTextPresentCheck,UselessParent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,10 +44,10 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/textViewEmp01"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Administrar Usuários"
+                    android:layout_height="match_parent"
+                    android:text="@string/dados_da_empresa"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textStyle="bold" />
@@ -56,67 +57,40 @@
                     android:layout_height="20dp" />
 
                 <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:text="O que você deseja fazer?"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <RadioGroup
+                    android:id="@+id/textViewEmp02"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/radioButtonOp1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Atualizar"
-                        android:textAlignment="gravity"
-                        android:textColor="#000000"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <RadioButton
-                        android:id="@+id/radioButtonOp2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Remover"
-                        android:textAlignment="gravity"
-                        android:textColor="#060903"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                </RadioGroup>
-
-                <EditText
-                    android:id="@+id/editTextName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Nome Completo / Empresa"
-                    android:inputType="text"
-                    android:minHeight="48dp" />
+                    android:text="@string/informacoes_retirada"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="20sp" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
                 <EditText
-                    android:id="@+id/editTextEmail"
+                    android:id="@+id/editTextNameEmp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Email"
+                    android:hint="@string/nome_empresa"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    tools:ignore="TextContrastCheck" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <EditText
+                    android:id="@+id/editTextEmailEmp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/email_empresa"
+                    android:importantForAutofill="no"
                     android:inputType="textEmailAddress"
                     android:minHeight="48dp" />
 
@@ -125,11 +99,12 @@
                     android:layout_height="10dp" />
 
                 <EditText
-                    android:id="@+id/editTextCpfCnpj"
+                    android:id="@+id/editTextCnpj"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="CPF/CNPJ"
+                    android:hint="@string/cnpj"
+                    android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="48dp" />
 
@@ -138,38 +113,28 @@
                     android:layout_height="10dp" />
 
                 <EditText
-                    android:id="@+id/editTextPhone"
+                    android:id="@+id/editTextPhoneEmp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Telefone (WhatsApp)"
+                    android:hint="@string/telefone_empresa"
+                    android:importantForAutofill="no"
                     android:inputType="phone"
                     android:minHeight="48dp"
-                    android:phoneNumber="true" />
+                    android:phoneNumber="true"
+                    tools:ignore="Deprecated,TextContrastCheck" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
                 <EditText
-                    android:id="@+id/editTextUf"
+                    android:id="@+id/editTextUfEmp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Estado"
-                    android:inputType="phone"
-                    android:minHeight="48dp" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
-
-                <EditText
-                    android:id="@+id/editTextCity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Cidade"
+                    android:hint="@string/estado_empresa"
+                    android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="48dp" />
 
@@ -178,11 +143,12 @@
                     android:layout_height="10dp" />
 
                 <EditText
-                    android:id="@+id/editTextAddress"
+                    android:id="@+id/editTextCityEmp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Endereço"
+                    android:hint="@string/cidade_empresa"
+                    android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="48dp" />
 
@@ -191,11 +157,26 @@
                     android:layout_height="10dp" />
 
                 <EditText
-                    android:id="@+id/editTextPostal"
+                    android:id="@+id/editTextAddressEmp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="CEP"
+                    android:hint="@string/endere_empresa"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <EditText
+                    android:id="@+id/editTextPostalEmp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/cep_empresa"
+                    android:importantForAutofill="no"
                     android:inputType="textPostalAddress"
                     android:minHeight="48dp" />
 
@@ -204,26 +185,45 @@
                     android:layout_height="10dp" />
 
                 <EditText
-                    android:id="@+id/editTextCountry"
+                    android:id="@+id/editTextCountryEmp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="País"
+                    android:hint="@string/pais_empresa"
+                    android:importantForAutofill="no"
                     android:inputType="text"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    tools:ignore="TextContrastCheck" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
                 <EditText
-                    android:id="@+id/editTextResiduo"
+                    android:id="@+id/editTextResiduoEmp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Tipo de Resíduo"
+                    android:hint="@string/residuo_empresa"
+                    android:importantForAutofill="no"
                     android:inputType="text"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    tools:ignore="TextContrastCheck" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <EditText
+                    android:id="@+id/editTextRegiaoEmp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/regiao_empresa"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    tools:ignore="TextContrastCheck" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -233,21 +233,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp">
 
+                    <Space
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent" />
+
                     <Button
-                        android:id="@+id/button4"
-                        android:layout_width="175dp"
+                        android:id="@+id/buttonLimparEmp"
+                        android:layout_width="120dp"
                         android:layout_height="match_parent"
-                        android:text="Limpar" />
+                        android:text="@string/bt_limpar_emp" />
 
                     <Space
-                        android:layout_width="5dp"
-                        android:layout_height="40dp" />
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent" />
 
                     <Button
-                        android:id="@+id/button3"
-                        android:layout_width="175dp"
+                        android:id="@+id/buttonSalvaEmp"
+                        android:layout_width="120dp"
                         android:layout_height="match_parent"
-                        android:text="Confirmar"
+                        android:text="@string/bt_salvar_emp"
                         tools:layout_editor_absoluteX="155dp"
                         tools:layout_editor_absoluteY="1027dp" />
 

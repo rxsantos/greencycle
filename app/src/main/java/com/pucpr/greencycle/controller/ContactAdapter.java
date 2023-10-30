@@ -1,5 +1,7 @@
 package com.pucpr.greencycle.controller;
 
+
+
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,22 +17,22 @@ import com.pucpr.greencycle.model.Contact;
 import com.pucpr.greencycle.model.DataModel;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder> {
-    /*
-}
+
+
     public interface OnItemClickListener{
-        void OnItemClick(View view, int position);
+        void onItemClick(View view, int position);
     }
     public interface OnItemLongClickListener{
         boolean onItemLongClick(View view,int position);
     }
     private OnItemClickListener clickListener;
     private OnItemLongClickListener longClickListener;
-    public void setOnItemClickListener(OnItemLongClickListener clickListener){
+    public void setOnItemClickListener(OnItemClickListener clickListener){
         this.clickListener = clickListener;
     }
     public void setOnItemLongClickListener(OnItemLongClickListener longClickListener){
         this.longClickListener = longClickListener;
-    } */
+    }
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView textView1;
         TextView textView2;
@@ -42,16 +44,12 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
             textView2 = itemView.findViewById(R.id.textView2);
             textView3 = itemView.findViewById(R.id.textView3);
             textView4 = itemView.findViewById(R.id.textView4);
-
-
-
-            /*
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
                     if (clickListener != null){
-                        clickListener.OnItemClick(view, getAdapterPosition());
+                        clickListener.onItemClick(view, getAdapterPosition());
                     }
                 }
             });
@@ -59,13 +57,12 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
                 @Override
                 public boolean onLongClick(View view) {
                     if (longClickListener != null){
-                       longClickListener.onItemLongClick(view, getAdapterPosition());
-                       return true;
+                        return longClickListener.onItemLongClick(view, getAdapterPosition());
 
                     }
                     return false;
                 }
-            });*/
+            });
         }
     }
 
@@ -75,7 +72,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View itemView = inflater.inflate(
-                R.layout.activity_list_users,
+                R.layout.activity_admin_listusers,
                 parent,
                 false
         );

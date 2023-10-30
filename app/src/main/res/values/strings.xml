@@ -14,8 +14,8 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="login_success">Login realizado com sucesso!</string>
-    <string name="attention">Atenção!</string>
-    <string name="empty_contact_alert_msg">Os dados não serão salvas. Você realmente quer voltar?</string>
+    <string name="attention">Atenção!!!!</string>
+    <string name="empty_contact_alert_msg">Os dados não serão salvos. Você realmente quer sair?</string>
     <string name="entrar">ENTRAR</string>
     <string name="cadastrar">CADASTRAR</string>
     <string name="ainda_nao_tem_cadastro">Ainda não tem cadastro?</string>
@@ -29,6 +29,40 @@
     <string name="remover">Remover</string>
     <string name="adicionar">Adicionar</string>
     <string name="textview4">TextView4</string>
+    <string name="dados_da_empresa">Dados da Empresa</string>
+    <string name="informacoes_retirada">As informações abaixo serão utilizadas para identificação no momento da retirada de um pedido de coleta</string>
+    <string name="nome_empresa">Nome da Empresa</string>
+    <string name="email_empresa">Email</string>
+    <string name="cnpj">CNPJ</string>
+    <string name="telefone_empresa">Telefone (WhatsApp)</string>
+    <string name="estado_empresa">Estado</string>
+    <string name="cidade_empresa">Cidade</string>
+    <string name="endere_empresa">Endereço</string>
+    <string name="cep_empresa">CEP</string>
+    <string name="pais_empresa">País</string>
+    <string name="residuo_empresa">Quais tipos de resíduos você trabalha</string>
+    <string name="regiao_empresa">Qual região você atua? (Nacional ou Estadual)</string>
+    <string name="bt_limpar_emp">Limpar</string>
+    <string name="bt_salvar_emp">Salvar</string>
+    <string name="informacoes_cliente">As informações abaixo serão utilizadas para identificação no momento de agendar um pedido de coleta</string>
+    <string name="nome_cliente">Nome Completo</string>
+    <string name="cpf">CPF</string>
+    <string name="addButton">Adicionar</string>
+    <string name="cadastro_usuario">Cadastrar Usuários</string>
+    <string name="nome_user">Nome</string>
+    <string name="email_user">Email</string>
+    <string name="password_user">Password</string>
+    <string name="tipo_user">Tipo (Empresa, Cliente ou Admin)</string>
+    <string name="tipo_usuario">Tipo do Usuário</string>
+    <string name="radiocliente">Cliente</string>
+    <string name="radio_empresa">Empresa</string>
+    <string name="radio_cliente">cliente</string>
+    <string name="radio_admin">Admin</string>
+    <string name="cadastrar_user">Cadastrar</string>
+    <string name="cad_user">Cadastrar</string>
+    <string name="cadastrar_atualizar">Cadastrar / Atualizar</string>
+    <string name="registrar_user">Cadastrar</string>
+    <string name="update_users">Atualizar Usuários</string>
 
 
 </resources>
