@@ -61,6 +61,7 @@
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#4CAF50"
             android:onClick="loginButtonOnClick"
             android:text="@string/entrar"
             android:textStyle="bold"
