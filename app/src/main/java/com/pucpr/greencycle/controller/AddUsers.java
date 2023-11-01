@@ -1,16 +1,12 @@
 package com.pucpr.greencycle.controller;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,9 +14,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.pucpr.greencycle.R;
-import com.pucpr.greencycle.model.Contact;
 import com.pucpr.greencycle.model.ContactDatabase;
-import com.pucpr.greencycle.model.DataModel;
 
 
 public class AddUsers extends AppCompatActivity {
@@ -45,7 +39,7 @@ public class AddUsers extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_users);
+        setContentView(R.layout.activity_add_users_admin);
         setTitle("Activity Adicionar Usuários");
 
         //DataModel.getInstance().createDatabase(AddUsers.this);
@@ -89,6 +83,7 @@ public class AddUsers extends AppCompatActivity {
             }
         });
     }
+
     /*
     @SuppressLint("MissingSuperCall")
     public void onBackPressed(){
@@ -133,7 +128,7 @@ public class AddUsers extends AppCompatActivity {
         }
     }*/
 
-
+/*
     public void userButtonOnClick() {
         String name = editNameUser.getText().toString();
         String email = editEmailUser.getText().toString();
@@ -155,7 +150,7 @@ public class AddUsers extends AppCompatActivity {
             Toast.makeText(this, "Usuário adicionado com Sucesso!", Toast.LENGTH_SHORT).show();
         }
 
-    }
+    } */
 
 
     //SQLite database build method
@@ -180,6 +175,7 @@ public class AddUsers extends AppCompatActivity {
         if (EditTextEmptyHolder) {
             //SQLite query to insert data into table
             SQLiteDataBaseQueryHolder = "INSERT INTO " + "Contact" + " (name,email,password,op) VALUES ('" + NameHolder + "','" + EmailHolder + "','" + PasswordHolder + "','" + Op + "');";
+            //DataModel.getInstance().addContact(new Contact(NameHolder, EmailHolder, PasswordHolder, Op));
 
             //Executing query
             sqLiteDatabaseObj.execSQL(SQLiteDataBaseQueryHolder);
@@ -257,8 +253,8 @@ public class AddUsers extends AppCompatActivity {
             Toast.makeText(AddUsers.this,"Email já foi utilizado. Tente outro email!",Toast.LENGTH_LONG).show();
         }else{
             // If email already dose n't exists then user registration details will entered to SQLite database.
-            //InsertDataIntoSQLiteDatabase();
-            userButtonOnClick();
+            InsertDataIntoSQLiteDatabase();
+            //userButtonOnClick();
         }
         F_Result = "Não Encontrado";
     }

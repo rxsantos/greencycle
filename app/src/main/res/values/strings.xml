@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Greencycle</string>
-    <string name="login_title">Acesso GreenCycle</string>
+    <string name="login_title">Bem Vindo a GreenCycle!</string>
     <string name="username">Email</string>
     <string name="password">Senha</string>
     <string name="login">Login</string>
@@ -15,7 +15,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="login_success">Login realizado com sucesso!</string>
     <string name="attention">Atenção!!!!</string>
-    <string name="empty_contact_alert_msg">Os dados não serão salvos. Você realmente quer sair?</string>
+    <string name="empty_contact_alert_msg">As alterações não serão salvas. Você realmente deseja sair?</string>
     <string name="entrar">ENTRAR</string>
     <string name="cadastrar">CADASTRAR</string>
     <string name="ainda_nao_tem_cadastro">Ainda não tem cadastro?</string>
@@ -56,7 +56,7 @@
     <string name="tipo_usuario">Tipo do Usuário</string>
     <string name="radiocliente">Cliente</string>
     <string name="radio_empresa">Empresa</string>
-    <string name="radio_cliente">cliente</string>
+    <string name="radio_cliente">Cliente</string>
     <string name="radio_admin">Admin</string>
     <string name="cadastrar_user">Cadastrar</string>
     <string name="cad_user">Cadastrar</string>

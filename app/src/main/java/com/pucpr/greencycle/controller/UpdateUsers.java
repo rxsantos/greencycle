@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +28,7 @@ public class UpdateUsers extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_users);
+        setContentView(R.layout.activity_update_users_admin);
         setTitle("Activity Adicionar Usuários");
 
         DataModel.getInstance().createDatabase(UpdateUsers.this);
@@ -48,8 +49,11 @@ public class UpdateUsers extends AppCompatActivity {
             editNameUser.setText(c.getName());
             editEmailUser.setText(c.getEmail());
             editPasswordUser.setText(c.getPassword());
-        }
 
+           // Toast.makeText(this, "Tipo de usuário "+
+             //       DataModel.getInstance().getContact(index).getOp(),
+               //     Toast.LENGTH_SHORT).show();
+        }
 
     }
     @SuppressLint("MissingSuperCall")
@@ -62,22 +66,21 @@ public class UpdateUsers extends AppCompatActivity {
             Op = "Admin";
         }else if(Empresa.isChecked()){
             Op = "Empresa";
-        } else {
+        } else if(Cliente.isChecked()){
             Op = "Cliente";
+        }else{
+            Op="";
         }
-        if (Nome.length() > 1 && Email.length() > 1 && Password.length() > 1) {
-            if (index == -1) {
-                DataModel.getInstance().addContact(
-                        new Contact(Nome, Email, Password, Op)
-                );
-            } else {
+        if (Nome.length() > 1 && Email.length() > 1 && Password.length() > 1 && Op.length() > 1) {
+
                 Contact c = DataModel.getInstance().getContact(index);
                 c.setName(Nome);
                 c.setEmail(Email);
                 c.setPassword(Password);
                 c.setOp(Op);
                 DataModel.getInstance().updateContact(c, index);
-            }
+                Toast.makeText(this, "Usuário Atualizado com Sucesso!", Toast.LENGTH_SHORT).show();
+
             finish();
         }else{
             AlertDialog.Builder builder = new AlertDialog.Builder( UpdateUsers.this);

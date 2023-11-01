@@ -11,7 +11,7 @@ public class Empresa extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_empresa);
+        setContentView(R.layout.activity_listorder_empresa);
         setTitle("Activity Empresa");
     }
 }

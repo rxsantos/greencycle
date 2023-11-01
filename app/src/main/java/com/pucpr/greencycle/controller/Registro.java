@@ -74,13 +74,13 @@ public class Registro extends AppCompatActivity {
 
 
 
-    //SQLite database build method
+    //Metodo construtor do SQLite database
     public void SQLiteDataBaseBuild(){
         sqLiteDatabaseObj = openOrCreateDatabase("contacts.sqlite",Context.MODE_PRIVATE, null);
 
     }
 
-    //SQLite table build method
+    //Metodo construtor da tabela SQLite
     public void SQLiteTableBuild(){
         sqLiteDatabaseObj.execSQL("Create Table if not exists "+ "Contact" + "( "+
                 "id" + " Integer primary key autoincrement, "+
@@ -91,40 +91,40 @@ public class Registro extends AppCompatActivity {
 
     }
 
-    //Insert data into SQLite database method
+    //Método para inserir dados no Banco de Dados SQLite
     public void InsertDataIntoSQLiteDatabase() {
         if (EditTextEmptyHolder) {
-            //SQLite query to insert data into table
+            //Query SQLite para inserir dados nas tabelas
             SQLiteDataBaseQueryHolder = "INSERT INTO " + "Contact" + " (name,email,password,op) VALUES ('" + NameHolder + "','" + EmailHolder + "','" + PasswordHolder + "','" + Op + "');";
 
-            //Executing query
+            //Executando query
             sqLiteDatabaseObj.execSQL(SQLiteDataBaseQueryHolder);
 
-            //Closing SQLite database object
+            //Fechando Objeto SQLite database
             sqLiteDatabaseObj.close();
 
-            //Printing toast message after done insert
+            //Printando mensagem toast depois de completar o inserte
             Toast.makeText(Registro.this, "Usuário Cadastrado com Sucesso!", Toast.LENGTH_LONG).show();
         }
-        // This block will execute if any of the registration EditText is empty.
+        // Este bloco será executado se algum EditText de registro estiver em branco.
         else {
 
-            //Printing toast message if any of EditTExt is Empty
+            //Printando mensagem toast se  algum EditText de registro estiver em branco.
             Toast.makeText(Registro.this, "Por favor, preencha os campos obrigatórios.", Toast.LENGTH_LONG).show();
         }
 
     }
-    //Empty editText after done inserting process method
+    //Limpa editText depois de finalizar o processo do metodo inserte.
     public void EmptyEditTextAfterDataInsert(){
         Name.getText().clear();
         Email.getText().clear();
         Password.getText().clear();
     }
 
-    //Method to check EditText is empty or Not.
+    //Metodo para checar se EditText está vazio ou não.
     public void CheckEditTextStatus(){
 
-        //Getting value from All EditText and storing into String Variables.
+        //Obtendo valor de todos EditText e armazenando em variáveis de String.
         NameHolder = Name.getText().toString();
         EmailHolder = Email.getText().toString();
         PasswordHolder = Password.getText().toString();
@@ -141,21 +141,21 @@ public class Registro extends AppCompatActivity {
         }
 
     }
-        // Checking Email is already exists or not.
+        // Verificando se e-mail já existe ou não.
     public void CheckingEmailAlreadyExistsOrNot(){
-            // Opening SQLite database write permission.
+            // Abrindo SQLite database com permissoes de escrita.
         sqLiteDatabaseObj = database.getWritableDatabase();
 
-            // Adding search email query to cursor.
+            // Adicionando query de consulta de email para o "cursor".
         cursor = sqLiteDatabaseObj.query("Contact",null,"" + "email" + "=?",new String[]{EmailHolder}, null, null, null);
             while (cursor.moveToNext()){
                 if (cursor.isFirst()){
                     cursor.moveToFirst();
 
-                    // If Email is already exists then Result variable value set as Email Found.
+                    // Se o email já existir então a variável Result será setada com o valor "Email Encontrado".
                     F_Result = "Email Encontrado";
 
-                    //Closing cursor.
+                    //Fechando cursor.
                     cursor.close();
                 }
             }
@@ -164,13 +164,13 @@ public class Registro extends AppCompatActivity {
 
 
         public void CheckFinalResult(){
-            // Checking whether email is already exists or not.
+            // Verificando se email já existe ou não.
         if (F_Result.equalsIgnoreCase("Email Encontrado")){
 
-            // If email is exists then toast msg will display.
+            // Se eamil já existir então mensagem Toast será mostrada.
             Toast.makeText(Registro.this,"Email já foi utilizado. Tente outro email!",Toast.LENGTH_LONG).show();
         }else{
-            // If email already dose n't exists then user registration details will entered to SQLite database.
+            // Se o e-mail não existir, as informacoes de registro do usuário serão inseridas no SQLite database.
             InsertDataIntoSQLiteDatabase();
         }
             F_Result = "Não Encontrado";

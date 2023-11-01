@@ -64,13 +64,6 @@ public class DataModel {
         }
         return false;
     }
-    public UserDetails userDetails =
-            new UserDetails("roberto", "1234");
-    public UserDetails comDetails =
-            new UserDetails("vitor", "1234");
-    public UserDetails userDetails01 =
-            new UserDetails("nathali", "1234");
-    public UserDetails comDetails01 =
-            new UserDetails("mariela","1234");
+
 
 }

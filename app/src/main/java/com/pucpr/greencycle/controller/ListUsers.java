@@ -12,7 +12,7 @@ public class ListUsers extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_listusers);
+        setContentView(R.layout.activity_listusers_admin);
         setTitle("Activity Lista Usuarios");
         recyclerView = findViewById(R.id.recyclerView);
     }

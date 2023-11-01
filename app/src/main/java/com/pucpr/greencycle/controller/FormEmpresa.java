@@ -20,7 +20,6 @@ public class FormEmpresa extends AppCompatActivity {
         //delivery = (RadioButton) findViewById(R.id.editRadioOp2);
 
 
-
         //delivery.setChecked(true);
         //Boolean RadioButtonState = delivery.isChecked();
 

@@ -72,7 +72,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View itemView = inflater.inflate(
-                R.layout.activity_admin_listusers,
+                R.layout.activity_listusers_admin,
                 parent,
                 false
         );
