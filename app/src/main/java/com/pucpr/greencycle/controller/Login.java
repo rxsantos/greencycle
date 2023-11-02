@@ -26,7 +26,7 @@ public class Login extends AppCompatActivity {
     Boolean EditTextEmptyHolder;
     ContactDatabase database;
     SQLiteDatabase sqLiteDatabaseObj;
-    String TempPassword = "Usuário não Encontrado", op = "Admin";
+    String TempPassword = "Usuário não Encontrado", op = "Admin", Name;
     public static final String UserEmail = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +99,9 @@ public class Login extends AppCompatActivity {
                     // Storing Password associated with entered email.
                     TempPassword = cursor.getString(cursor.getColumnIndexOrThrow("password"));
                     op = cursor.getString(cursor.getColumnIndexOrThrow("op"));
-                    System.out.println(op);
+                    Name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
+
+                    System.out.println(Name);
 
                     // Closing cursor.
                     cursor.close();
@@ -136,16 +138,16 @@ public class Login extends AppCompatActivity {
             if(op.equals("Cliente")){
                 Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
                 // Going to Dashboard activity after login success message.
-                Intent intent = new Intent(Login.this, Cliente.class);
+                Intent intent = new Intent(Login.this, ApresentacaoCliente.class);
                 // Sending Email to Dashboard Activity using intent.
-                intent.putExtra(UserEmail, EmailHolder);
+                intent.putExtra(UserEmail, Name);
                 startActivity(intent);
             }else if(op.equals("Empresa")){
                 Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
                 // Going to Dashboard activity after login success message.
-                Intent intent = new Intent(Login.this, Empresa.class);
+                Intent intent = new Intent(Login.this, ApresentacaoEmpresa.class);
                 // Sending Email to Dashboard Activity using intent.
-                intent.putExtra(UserEmail, EmailHolder);
+                intent.putExtra(UserEmail, Name);
                 startActivity(intent);
             }else{
                 Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();

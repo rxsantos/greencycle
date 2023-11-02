@@ -13,6 +13,12 @@
         android:theme="@style/Theme.MultiActivity"
         tools:targetApi="31">
         <activity
+            android:name=".controller.ApresentacaoEmpresa"
+            android:exported="false" />
+        <activity
+            android:name=".controller.ApresentacaoCliente"
+            android:exported="false" />
+        <activity
             android:name=".controller.AddUsers"
             android:exported="false" />
         <activity
