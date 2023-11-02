@@ -28,6 +28,7 @@ public class Login extends AppCompatActivity {
     SQLiteDatabase sqLiteDatabaseObj;
     String TempPassword = "Usuário não Encontrado", op = "Admin", Name;
     public static final String UserEmail = "";
+    public static final String UserName = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,14 +141,14 @@ public class Login extends AppCompatActivity {
                 // Going to Dashboard activity after login success message.
                 Intent intent = new Intent(Login.this, ApresentacaoCliente.class);
                 // Sending Email to Dashboard Activity using intent.
-                intent.putExtra(UserEmail, Name);
+                intent.putExtra(UserName, Name);
                 startActivity(intent);
             }else if(op.equals("Empresa")){
                 Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
                 // Going to Dashboard activity after login success message.
                 Intent intent = new Intent(Login.this, ApresentacaoEmpresa.class);
                 // Sending Email to Dashboard Activity using intent.
-                intent.putExtra(UserEmail, Name);
+                intent.putExtra(UserName, Name);
                 startActivity(intent);
             }else{
                 Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();

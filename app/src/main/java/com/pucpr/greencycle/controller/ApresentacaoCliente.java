@@ -17,11 +17,11 @@ public class ApresentacaoCliente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apresentacao_cliente);
-        setTitle("Activity Boas Vindas Cliente");
+        setTitle("Activity Tela Abertura Cliente");
         Name = findViewById(R.id.tvClientName);
-        DataModel.getInstance().createDatabase(ApresentacaoCliente.this);
+        //DataModel.getInstance().createDatabase(ApresentacaoCliente.this);
 
-        NameHolder = getIntent().getStringExtra(Login.UserEmail);
-        Name.setText(NameHolder+"!");
+        NameHolder = getIntent().getStringExtra(Login.UserName);
+        Name.setText("Olá "+ NameHolder+"!");
     }
 }
