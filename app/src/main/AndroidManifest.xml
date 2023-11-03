@@ -16,7 +16,13 @@
             android:name=".controller.ApresentacaoEmpresa"
             android:exported="false" />
         <activity
+            android:name=".controller.FormCliente"
+            android:exported="false" />
+        <activity
             android:name=".controller.ApresentacaoCliente"
+            android:exported="false" />
+        <activity
+            android:name=".controller.FormEmpresa"
             android:exported="false" />
         <activity
             android:name=".controller.AddUsers"

@@ -2,7 +2,9 @@ package com.pucpr.greencycle.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.pucpr.greencycle.R;
@@ -23,5 +25,15 @@ public class ApresentacaoEmpresa extends AppCompatActivity {
 
         NameHolder = getIntent().getStringExtra(Login.UserName);
         Name.setText("Olá "+ NameHolder+"!");
+    }
+
+    public void retirarButtonOnClick(View v){
+        Intent intent = new Intent(ApresentacaoEmpresa.this, FormEmpresa.class);
+        startActivity(intent);
+    }
+
+    public void listaRetirardasButtonOnClick(View v){
+        Intent intent = new Intent(ApresentacaoEmpresa.this, Empresa.class);
+        startActivity(intent);
     }
 }
