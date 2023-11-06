@@ -14,10 +14,29 @@ public class DataModel {
         return instance;
     }
     private ArrayList<Contact>contacts;
+    private ArrayList<Client>clients;
+    private ArrayList<Company>companies;
+
     private ContactDatabase database;
+
+    public void createClientDatabase(Context context){
+        database = new ContactDatabase(context);
+        clients = database.getClientFromDB();
+    }
+    public boolean addClient(Client c){
+        long id = database.createClientInDB(c);
+        if (id > 0){
+            c.setId(id);
+            clients.add(c);
+            return true;
+        }
+        return false;
+    }
     public void createDatabase(Context context){
         database = new ContactDatabase(context);
         contacts = database.getContactsFromDB();
+        //clients = database.getClientFromDB();
+        //companies = database.getCompanyFromDB();
     }
     public ArrayList<Contact>getContacts(){
         return contacts;
@@ -38,6 +57,17 @@ public class DataModel {
         }
         return false;
     }
+    /*
+
+    public boolean addCompany(Company c){
+        long id = database.createCompanyInDB(c);
+        if (id > 0){
+            c.setId(id);
+            companies.add(c);
+            return true;
+        }
+        return false;
+    } */
     public boolean insertContact(Contact c,int pos){
         long id = database.insertContactInDB(c);
         if (id > 0){

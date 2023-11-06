@@ -29,8 +29,8 @@
     <string name="remover">Remover</string>
     <string name="adicionar">Adicionar</string>
     <string name="textview4">TextView4</string>
-    <string name="dados_da_empresa">Dados da Empresa</string>
-    <string name="informacoes_retirada">As informações abaixo serão utilizadas para identificação no momento da retirada de um pedido de coleta</string>
+    <string name="dados_da_empresa">Cadastro de Empresa</string>
+    <string name="informacoes_retirada">As informações abaixo serão utilizadas pelo usuário para que ele possa identificá-lo no momento da retirada do pedido de coleta</string>
     <string name="nome_empresa">Nome da Empresa</string>
     <string name="email_empresa">Email</string>
     <string name="cnpj">CNPJ</string>
@@ -43,8 +43,9 @@
     <string name="residuo_empresa">Quais tipos de resíduos você trabalha</string>
     <string name="regiao_empresa">Qual região você atua? (Nacional ou Estadual)</string>
     <string name="bt_limpar_emp">Limpar</string>
-    <string name="bt_salvar_emp">Salvar</string>
-    <string name="informacoes_cliente">As informações abaixo serão utilizadas para identificação no momento de agendar um pedido de coleta</string>
+    <string name="bt_salvar_emp">Cadastrar / Atualizar Dados da Empresa</string>
+    <string name="bt_salvar_cliente">Cadastrar / Atualizar Dados do Usuário</string>
+    <string name="informacoes_cliente">As informações abaixo serão utilizadas pela empresa de reciclagem no momento da retirada do seu pedido de coleta</string>
     <string name="nome_cliente">Nome Completo</string>
     <string name="cpf">CPF</string>
     <string name="addButton">Adicionar</string>
@@ -63,6 +64,16 @@
     <string name="cadastrar_atualizar">Cadastrar / Atualizar</string>
     <string name="registrar_user">Cadastrar</string>
     <string name="update_users">Atualizar Usuários</string>
+    <string name="bemvindo">Sua maneira inteligente de reciclar!</string>
+    <string name="descricao_cliente">Aqui você pode realizar pedidos de coleta dos seus materiais recicláveis!</string>
+    <string name="descricao_empresa">Aqui você pode realizar retiradas dos pedidos de coleta dos recicláveis!</string>
+    <string name="solicitar_coleta_cliente">Solicitar Pedido de Coleta</string>
+    <string name="retirar_coleta_empresa">Listar Solicitações de Retirada de Coleta</string>
+    <string name="dados_usuario">Cadastro de Usuário</string>
+    <string name="telefone_whatsapp_cliente">Telefone (WhatsApp)</string>
+    <string name="endereco_cliente">Endereço</string>
+    <string name="tipo_residuo_cliente">Tipo de resídio que deseja descartar?</string>
+
 
 
 </resources>
