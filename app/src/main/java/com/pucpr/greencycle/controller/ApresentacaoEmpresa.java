@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.pucpr.greencycle.R;
 import com.pucpr.greencycle.R.id;
-import com.pucpr.greencycle.model.DataModel;
 
 public class ApresentacaoEmpresa extends AppCompatActivity {
 

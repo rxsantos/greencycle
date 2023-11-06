@@ -15,6 +15,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="#6ABD21"
+        android:onClick="formClienteButtonOnClick"
         android:text="@string/bt_salvar_cliente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +64,7 @@
                     android:id="@+id/textViewCl01"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Pedido de Coleta"
+                    android:text="@string/dados_usuario"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textStyle="bold" />
@@ -83,32 +84,30 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="30dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/editTextNameCl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/nome_cliente"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
                     android:minHeight="48dp"
-                    tools:ignore="TextContrastCheck" />
+                    android:textAlignment="textStart"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/editTextEmailCl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="@string/email_empresa"
-                    android:importantForAutofill="no"
-                    android:inputType="textEmailAddress"
-                    android:minHeight="48dp" />
+                    android:hint="@string/email"
+                    android:minHeight="48dp"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -219,21 +218,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:gravity="start|top"
                     android:hint="@string/tipo_residuo_cliente"
                     android:importantForAutofill="no"
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
                     android:minHeight="48dp"
                     tools:ignore="TextContrastCheck" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="20dp" />
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-                </TableRow>
 
             </LinearLayout>
         </ScrollView>

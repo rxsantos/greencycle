@@ -53,7 +53,7 @@ public class UserDetailsDatabase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
     }
 
-    public long createContactInDB(UserDetails c){
+    public long createUserDetailInDB(UserDetails c){
         SQLiteDatabase database = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL_NAME,c.getName());
@@ -71,7 +71,7 @@ public class UserDetailsDatabase extends SQLiteOpenHelper {
         database.close();
         return id;
     }
-    public long insertContactInDB(UserDetails c){
+    public long insertUserDetailInDB(UserDetails c){
         SQLiteDatabase database = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL_ID,c.getId());
@@ -91,7 +91,7 @@ public class UserDetailsDatabase extends SQLiteOpenHelper {
         return id;
     }
 
-    public ArrayList<UserDetails> getContactsFromDB(){
+    public ArrayList<UserDetails> getUserDetailsFromDB(){
         SQLiteDatabase database = getReadableDatabase();
         Cursor cursor = database.query(DB_TABLE, null, null, null, null, null, null);
         ArrayList<UserDetails>userdetails = new ArrayList<>();
@@ -129,7 +129,7 @@ public class UserDetailsDatabase extends SQLiteOpenHelper {
         return userdetails;
     }
 
-    public int updateContactInDB(UserDetails c){
+    public int updateUserDetailInDB(UserDetails c){
         SQLiteDatabase database = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL_NAME,c.getName());
@@ -149,7 +149,7 @@ public class UserDetailsDatabase extends SQLiteOpenHelper {
         database.close();
         return count;
     }
-    public int removeContactInDB(UserDetails c){
+    public int removeUserDetailInDB(UserDetails c){
         SQLiteDatabase database = getWritableDatabase();
         String id = String.valueOf(c.getId());
         int count = database.delete(DB_TABLE,

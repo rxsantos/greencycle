@@ -15,7 +15,9 @@ import android.widget.Toast;
 import com.pucpr.greencycle.R;
 import com.pucpr.greencycle.model.Contact;
 import com.pucpr.greencycle.model.ContactDatabase;
+import com.pucpr.greencycle.model.DataModel;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
@@ -26,9 +28,11 @@ public class Login extends AppCompatActivity {
     Boolean EditTextEmptyHolder;
     ContactDatabase database;
     SQLiteDatabase sqLiteDatabaseObj;
-    String TempPassword = "Usuário não Encontrado", op = "Admin", Name;
+    String TempPassword = "Usuário não Encontrado", op = "Admin", Name, Ident;
     public static final String UserEmail = "";
     public static final String UserName = "";
+    public static final String UserId = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +48,11 @@ public class Login extends AppCompatActivity {
 
         //database.createContactInDB(new Contact("Roberto Xavier","roberto.xavier@gmail.com", "1234", "3"));
 
-
+/*
         ArrayList<Contact>contacts = database.getContactsFromDB();
         for (Contact c:contacts) {
             c.print();
-
-        }
+        } */
         //contacts.get(6).setOp("Empresa");
         //database.updateContactInDB(contacts.get(6));
         //database.removeContactInDB(contacts.get(4));
@@ -101,8 +104,12 @@ public class Login extends AppCompatActivity {
                     TempPassword = cursor.getString(cursor.getColumnIndexOrThrow("password"));
                     op = cursor.getString(cursor.getColumnIndexOrThrow("op"));
                     Name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
+                    Ident = cursor.getString(cursor.getColumnIndexOrThrow("id"));
+                    //System.out.println(Ident);
 
-                    System.out.println(Name);
+
+
+
 
                     // Closing cursor.
                     cursor.close();
@@ -137,21 +144,26 @@ public class Login extends AppCompatActivity {
         if(TempPassword.equalsIgnoreCase(PasswordHolder))
         {
             if(op.equals("Cliente")){
-                Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
+                //Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
                 // Going to Dashboard activity after login success message.
                 Intent intent = new Intent(Login.this, ApresentacaoCliente.class);
                 // Sending Email to Dashboard Activity using intent.
-                intent.putExtra(UserName, Name);
+                Bundle extras = new Bundle();
+                extras.putString("EXTRA_NAME",Name);
+                extras.putString("EXTRA_EMAIL",EmailHolder);
+                extras.putString("EXTRA_USERID",Ident);
+                intent.putExtras(extras);
                 startActivity(intent);
+
             }else if(op.equals("Empresa")){
-                Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
+                //Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
                 // Going to Dashboard activity after login success message.
                 Intent intent = new Intent(Login.this, ApresentacaoEmpresa.class);
                 // Sending Email to Dashboard Activity using intent.
                 intent.putExtra(UserName, Name);
                 startActivity(intent);
             }else{
-                Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
+                //Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
                 // Going to Dashboard activity after login success message.
                 Intent intent = new Intent(Login.this, RecyclerviewAdmin.class);
                 // Sending Email to Dashboard Activity using intent.
