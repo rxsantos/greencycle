@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#8BC34A"
+    android:backgroundTint="#C6FFC9"
     tools:context=".controller.Registro">
 
     <LinearLayout
@@ -16,13 +18,15 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="REGISTRE-SE"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -30,12 +34,13 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="21dp" />
 
         <EditText
             android:id="@+id/fullnameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableTint="#000000"
             android:ems="10"
             android:hint="Digite seu nome completo"
             android:inputType="text"
@@ -69,7 +74,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="27dp" />
 
         <TableRow
             android:layout_width="match_parent"
@@ -81,9 +86,9 @@
 
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_width="93dp"
-                android:layout_height="80dp"
-                app:srcCompat="@drawable/caminhao_coleta" />
+                android:layout_width="97dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/caminhao_lixo" />
 
             <Space
                 android:layout_width="100dp"
@@ -93,7 +98,7 @@
                 android:id="@+id/imageView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/pessoa_reciclando" />
+                app:srcCompat="@drawable/couple_recycling_png" />
 
         </TableRow>
 
