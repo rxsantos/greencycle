@@ -32,11 +32,11 @@
             android:text="@string/update_users"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#000000" />
+            android:textColor="#80B542" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="17dp" />
 
         <EditText
             android:id="@+id/editNameUpdate"
@@ -70,7 +70,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30dp" />
+            android:layout_height="60dp" />
 
         <TextView
             android:id="@+id/textViewUpdate"
@@ -79,33 +79,45 @@
             android:text="@string/tipo_usuario"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="#000000"
+            android:textColor="#80B542"
             android:textSize="29sp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="37dp" />
+            android:layout_height="18dp" />
 
         <TableRow
             android:layout_width="358dp"
             android:layout_height="102dp">
 
+            <Space
+                android:layout_width="24dp"
+                android:layout_height="match_parent" />
+
             <ImageView
                 android:id="@+id/imageView12"
-                android:layout_width="147dp"
+                android:layout_width="113dp"
                 android:layout_height="99dp"
                 app:srcCompat="@drawable/couple_recycling_png" />
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <ImageView
                 android:id="@+id/imageView13"
-                android:layout_width="85dp"
+                android:layout_width="109dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/caminhao_lixo" />
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <ImageView
                 android:id="@+id/imageView14"
-                android:layout_width="72dp"
-                android:layout_height="99dp"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
                 app:srcCompat="@drawable/logogogogo" />
         </TableRow>
 
@@ -113,6 +125,11 @@
             android:layout_width="377dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
+            <Space
+                android:layout_width="14dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -129,7 +146,7 @@
             <RadioButton
                 android:id="@+id/radioButtonEmpresaUp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="68dp"
                 android:layout_weight="1"
                 android:text="@string/radio_empresa" />
 
@@ -139,6 +156,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/radio_admin" />
+
+            <Space
+                android:layout_width="18dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
         </RadioGroup>
 
         <Space
