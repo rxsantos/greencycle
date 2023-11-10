@@ -48,11 +48,11 @@ public class Login extends AppCompatActivity {
 
         //database.createContactInDB(new Contact("Roberto Xavier","roberto.xavier@gmail.com", "1234", "3"));
 
-/*
+
         ArrayList<Contact>contacts = database.getContactsFromDB();
         for (Contact c:contacts) {
             c.print();
-        } */
+        }
         //contacts.get(6).setOp("Empresa");
         //database.updateContactInDB(contacts.get(6));
         //database.removeContactInDB(contacts.get(4));
@@ -108,9 +108,6 @@ public class Login extends AppCompatActivity {
                     //System.out.println(Ident);
 
 
-
-
-
                     // Closing cursor.
                     cursor.close();
                 }
@@ -160,7 +157,11 @@ public class Login extends AppCompatActivity {
                 // Going to Dashboard activity after login success message.
                 Intent intent = new Intent(Login.this, ApresentacaoEmpresa.class);
                 // Sending Email to Dashboard Activity using intent.
-                intent.putExtra(UserName, Name);
+                Bundle extras = new Bundle();
+                extras.putString("EXTRA_NAME",Name);
+                extras.putString("EXTRA_EMAIL",EmailHolder);
+                extras.putString("EXTRA_USERID",Ident);
+                intent.putExtras(extras);
                 startActivity(intent);
             }else{
                 //Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();

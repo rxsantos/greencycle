@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvEmpresaName" />
 
     <Button
-        android:id="@+id/buttonPresEmpr"
+        android:id="@+id/buttonPressEmp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -73,13 +73,13 @@
         android:onClick="retirarButtonOnClick"
         android:text="@string/bt_salvar_emp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView08"
         tools:ignore="TextContrastCheck" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/imageView08"
         android:layout_width="250dp"
         android:layout_height="150dp"
         android:layout_marginTop="24dp"
@@ -104,5 +104,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPresEmpr" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonPressEmp"
+        tools:ignore="TextContrastCheck,VisualLintButtonSize" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,19 +19,6 @@ public class DataModel {
 
     private ContactDatabase database;
 
-    public void createClientDatabase(Context context){
-        database = new ContactDatabase(context);
-        clients = database.getClientFromDB();
-    }
-    public boolean addClient(Client c){
-        long id = database.createClientInDB(c);
-        if (id > 0){
-            c.setId(id);
-            clients.add(c);
-            return true;
-        }
-        return false;
-    }
     public void createDatabase(Context context){
         database = new ContactDatabase(context);
         contacts = database.getContactsFromDB();
@@ -57,17 +44,7 @@ public class DataModel {
         }
         return false;
     }
-    /*
 
-    public boolean addCompany(Company c){
-        long id = database.createCompanyInDB(c);
-        if (id > 0){
-            c.setId(id);
-            companies.add(c);
-            return true;
-        }
-        return false;
-    } */
     public boolean insertContact(Contact c,int pos){
         long id = database.insertContactInDB(c);
         if (id > 0){
@@ -90,6 +67,33 @@ public class DataModel {
         );
         if (count == 1){
             contacts.remove(pos);
+            return true;
+        }
+        return false;
+    }
+
+    public void createClientDatabase(Context context){
+        database = new ContactDatabase(context);
+        clients = database.getClientsFromDB();
+    }
+    public boolean addClient(Client c){
+        long id = database.createClientInDB(c);
+        if (id > 0){
+            c.setId(id);
+            clients.add(c);
+            return true;
+        }
+        return false;
+    }
+    public void createCompanyDatabase(Context context){
+        database = new ContactDatabase(context);
+        companies = database.getCompaniesFromDB();
+    }
+    public boolean addCompany(Company c){
+        long id = database.createCompanyInDB(c);
+        if (id > 0){
+            c.setId(id);
+            companies.add(c);
             return true;
         }
         return false;

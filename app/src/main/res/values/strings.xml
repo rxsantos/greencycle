@@ -43,8 +43,10 @@
     <string name="residuo_empresa">Quais tipos de resíduos você trabalha</string>
     <string name="regiao_empresa">Qual região você atua? (Nacional ou Estadual)</string>
     <string name="bt_limpar_emp">Limpar</string>
-    <string name="bt_salvar_emp">Cadastrar / Atualizar Dados da Empresa</string>
-    <string name="bt_salvar_cliente">Cadastrar / Atualizar Dados do Usuário</string>
+    <string name="bt_salvar_emp">Complete ou Atualize seu Cadastro</string>
+    <string name="bt_salvar_cliente">Complete ou Atualize seu Cadastro</string>
+    <string name="bt_form_cliente">Salvar</string>
+    <string name="bt_form_empresa">Salvar</string>
     <string name="informacoes_cliente">As informações abaixo serão utilizadas pela empresa de reciclagem no momento da retirada do seu pedido de coleta</string>
     <string name="nome_cliente">Nome Completo</string>
     <string name="cpf">CPF</string>

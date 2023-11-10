@@ -24,7 +24,7 @@ public class Registro extends AppCompatActivity {
     String NameHolder, EmailHolder, PasswordHolder, Op;
     Boolean EditTextEmptyHolder;
     SQLiteDatabase sqLiteDatabaseObj;
-    String SQLiteDataBaseQueryHolder ;
+    String SQLiteDataBaseQueryHolder;
     ContactDatabase database;
     Cursor cursor;
     String F_Result = "Usuário não Encontrado";
@@ -105,6 +105,7 @@ public class Registro extends AppCompatActivity {
 
             //Printando mensagem toast depois de completar o inserte
             Toast.makeText(Registro.this, "Usuário Cadastrado com Sucesso!", Toast.LENGTH_LONG).show();
+            finish();
         }
         // Este bloco será executado se algum EditText de registro estiver em branco.
         else {
@@ -112,8 +113,8 @@ public class Registro extends AppCompatActivity {
             //Printando mensagem toast se  algum EditText de registro estiver em branco.
             Toast.makeText(Registro.this, "Por favor, preencha os campos obrigatórios.", Toast.LENGTH_LONG).show();
         }
-
     }
+
     //Limpa editText depois de finalizar o processo do metodo inserte.
     public void EmptyEditTextAfterDataInsert(){
         Name.getText().clear();
@@ -167,7 +168,7 @@ public class Registro extends AppCompatActivity {
             // Verificando se email já existe ou não.
         if (F_Result.equalsIgnoreCase("Email Encontrado")){
 
-            // Se eamil já existir então mensagem Toast será mostrada.
+            // Se email já existir então mensagem Toast será mostrada.
             Toast.makeText(Registro.this,"Email já foi utilizado. Tente outro email!",Toast.LENGTH_LONG).show();
         }else{
             // Se o e-mail não existir, as informacoes de registro do usuário serão inseridas no SQLite database.
