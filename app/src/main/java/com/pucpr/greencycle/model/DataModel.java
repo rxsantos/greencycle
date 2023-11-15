@@ -22,8 +22,7 @@ public class DataModel {
     public void createDatabase(Context context){
         database = new ContactDatabase(context);
         contacts = database.getContactsFromDB();
-        //clients = database.getClientFromDB();
-        //companies = database.getCompanyFromDB();
+
     }
     public ArrayList<Contact>getContacts(){
         return contacts;
@@ -76,6 +75,16 @@ public class DataModel {
         database = new ContactDatabase(context);
         clients = database.getClientsFromDB();
     }
+
+    public ArrayList<Client>getClients(){
+        return clients;
+    }
+    public Client getClient(int pos){
+        return clients.get(pos);
+    }
+    public int getClientSize(){
+        return clients.size();
+    }
     public boolean addClient(Client c){
         long id = database.createClientInDB(c);
         if (id > 0){
@@ -85,15 +94,81 @@ public class DataModel {
         }
         return false;
     }
+
+    public boolean insertClient(Client c,int pos){
+        long id = database.insertClientInDB(c);
+        if (id > 0){
+            clients.add(pos,c);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean updateClient(Client c, int pos){
+        int count = database.updateClientInDB(c);
+        if (count == 1){
+            clients.set(pos,c);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean removeClient(int pos){
+        int count = database.removeClientInDB(
+                getClient(pos)
+        );
+        if (count == 1){
+            contacts.remove(pos);
+            return true;
+        }
+        return false;
+    }
     public void createCompanyDatabase(Context context){
         database = new ContactDatabase(context);
         companies = database.getCompaniesFromDB();
+    }
+    public ArrayList<Company>getCompanies(){
+        return companies;
+    }
+
+    public Company getCompany(int pos){
+        return companies.get(pos);
+    }
+    public int getCompanySize(){
+        return companies.size();
     }
     public boolean addCompany(Company c){
         long id = database.createCompanyInDB(c);
         if (id > 0){
             c.setId(id);
             companies.add(c);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean insertCompany(Company c,int pos){
+        long id = database.insertCompanyInDB(c);
+        if (id > 0){
+            companies.add(pos,c);
+            return true;
+        }
+        return false;
+    }
+    public boolean updateCompany(Company c, int pos){
+        int count = database.updateCompanyInDB(c);
+        if (count == 1){
+            companies.set(pos,c);
+            return true;
+        }
+        return false;
+    }
+    public boolean removeCompany(int pos){
+        int count = database.removeCompanyInDB(
+                getCompany(pos)
+        );
+        if (count == 1){
+            companies.remove(pos);
             return true;
         }
         return false;

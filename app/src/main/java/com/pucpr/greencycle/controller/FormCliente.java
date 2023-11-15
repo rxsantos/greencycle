@@ -1,6 +1,5 @@
 package com.pucpr.greencycle.controller;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,7 +8,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,9 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.pucpr.greencycle.R;
 
 import com.pucpr.greencycle.model.Client;
-import com.pucpr.greencycle.model.Contact;
 import com.pucpr.greencycle.model.ContactDatabase;
-import com.pucpr.greencycle.model.DataModel;
 
 import java.util.ArrayList;
 

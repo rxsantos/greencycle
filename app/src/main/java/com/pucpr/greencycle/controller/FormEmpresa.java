@@ -7,7 +7,6 @@ import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Region;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,13 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pucpr.greencycle.R;
-import com.pucpr.greencycle.R.id;
-import com.pucpr.greencycle.model.Client;
 import com.pucpr.greencycle.model.Company;
 import com.pucpr.greencycle.model.ContactDatabase;
 
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class FormEmpresa extends AppCompatActivity {
 

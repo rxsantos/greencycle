@@ -10,12 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.pucpr.greencycle.R;
-import com.pucpr.greencycle.model.Client;
-import com.pucpr.greencycle.model.Contact;
 import com.pucpr.greencycle.model.ContactDatabase;
-import com.pucpr.greencycle.model.DataModel;
-
-import java.util.ArrayList;
 
 public class ApresentacaoCliente extends AppCompatActivity {
 
@@ -104,7 +99,7 @@ public class ApresentacaoCliente extends AppCompatActivity {
     }
 
     public void listaSolicitacaoButtonOnClick(View v){
-        Intent intent = new Intent(ApresentacaoCliente.this, Cliente.class);
+        Intent intent = new Intent(ApresentacaoCliente.this, FormPedidos.class);
         startActivity(intent);
     }
 }

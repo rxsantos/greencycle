@@ -11,10 +11,7 @@ import android.widget.TextView;
 
 import com.pucpr.greencycle.R;
 import com.pucpr.greencycle.R.id;
-import com.pucpr.greencycle.model.Company;
 import com.pucpr.greencycle.model.ContactDatabase;
-
-import java.util.ArrayList;
 
 public class ApresentacaoEmpresa extends AppCompatActivity {
 
@@ -104,7 +101,7 @@ public class ApresentacaoEmpresa extends AppCompatActivity {
 
 
     public void listaRetirardasButtonOnClick(View v){
-        Intent intent = new Intent(ApresentacaoEmpresa.this, Empresa.class);
+        Intent intent = new Intent(ApresentacaoEmpresa.this, FormColetas.class);
         startActivity(intent);
     }
 }

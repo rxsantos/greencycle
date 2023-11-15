@@ -104,14 +104,14 @@ public class Registro extends AppCompatActivity {
             sqLiteDatabaseObj.close();
 
             //Printando mensagem toast depois de completar o inserte
-            Toast.makeText(Registro.this, "Usuário Cadastrado com Sucesso!", Toast.LENGTH_LONG).show();
+            //Toast.makeText(Registro.this, "Usuário Cadastrado com Sucesso!", Toast.LENGTH_LONG).show();
             finish();
         }
         // Este bloco será executado se algum EditText de registro estiver em branco.
         else {
 
             //Printando mensagem toast se  algum EditText de registro estiver em branco.
-            Toast.makeText(Registro.this, "Por favor, preencha os campos obrigatórios.", Toast.LENGTH_LONG).show();
+            Toast.makeText(Registro.this, "Por favor, preencha todos os campos.", Toast.LENGTH_LONG).show();
         }
     }
 

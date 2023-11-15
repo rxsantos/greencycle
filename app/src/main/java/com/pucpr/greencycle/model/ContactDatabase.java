@@ -331,7 +331,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
         return count;
     }
 
-    public long updateClientInDB(Client c) {
+    public int updateClientInDB(Client c) {
         //Get Writable Database
         SQLiteDatabase database = getWritableDatabase();
         //Criar ContentValues Tabela Client
@@ -354,7 +354,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
         return count;
     }
 
-    public long updateCompanyInDB(Company c) {
+    public int updateCompanyInDB(Company c) {
         //Get Writable Database
         SQLiteDatabase database = getWritableDatabase();
         //Criar ContentValues Tabela Company
