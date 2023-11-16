@@ -17,7 +17,7 @@ import com.pucpr.greencycle.R;
 import com.pucpr.greencycle.model.ContactDatabase;
 
 
-public class AddUsersLogin extends AppCompatActivity {
+public class UsersLoginAdd extends AppCompatActivity {
 
     EditText editNameUser, editEmailUser, editPasswordUser;
     Button Cadastrar;
@@ -184,14 +184,14 @@ public class AddUsersLogin extends AppCompatActivity {
             sqLiteDatabaseObj.close();
 
             //Printing toast message after done insert
-            //Toast.makeText(AddUsersLogin.this, "Usuário Cadastrado com Sucesso!", Toast.LENGTH_LONG).show();
+            //Toast.makeText(UsersLoginAdd.this, "Usuário Cadastrado com Sucesso!", Toast.LENGTH_LONG).show();
             finish();
         }
         // This block will execute if any of the registration EditText is empty.
         else {
 
             //Printing toast message if any of EditTExt is Empty
-            Toast.makeText(AddUsersLogin.this, "Por favor, preencha todos os campos.", Toast.LENGTH_LONG).show();
+            Toast.makeText(UsersLoginAdd.this, "Por favor, preencha todos os campos.", Toast.LENGTH_LONG).show();
         }
 
     }
@@ -251,7 +251,7 @@ public class AddUsersLogin extends AppCompatActivity {
         if (F_Result.equalsIgnoreCase("Email Encontrado")){
 
             // If email is exists then toast msg will display.
-            Toast.makeText(AddUsersLogin.this,"Email já foi utilizado. Tente outro email!",Toast.LENGTH_LONG).show();
+            Toast.makeText(UsersLoginAdd.this,"Email já foi utilizado. Tente outro email!",Toast.LENGTH_LONG).show();
         }else{
             // If email already dose n't exists then user registration details will entered to SQLite database.
             InsertDataIntoSQLiteDatabase();

@@ -146,12 +146,12 @@ public class Contact extends AppCompatActivity {
         adaptercontact.notifyDataSetChanged();
     }
     void goToAddUser(int index){
-        Intent intent = new  Intent(Contact.this, UpdateUsersLogin.class);
+        Intent intent = new  Intent(Contact.this, UsersLoginUpdate.class);
         intent.putExtra("index",index);
         startActivity(intent);
     }
     public void addButtonOnClick(View v){
-        Intent intent = new  Intent(Contact.this, AddUsersLogin.class);
+        Intent intent = new  Intent(Contact.this, UsersLoginAdd.class);
         startActivity(intent);
     }
 

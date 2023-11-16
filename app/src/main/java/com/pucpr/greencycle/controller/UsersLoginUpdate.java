@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +14,7 @@ import com.pucpr.greencycle.model.Contact;
 import com.pucpr.greencycle.model.DataModel;
 
 
-public class UpdateUsersLogin extends AppCompatActivity {
+public class UsersLoginUpdate extends AppCompatActivity {
 
     EditText editNameUser, editEmailUser, editPasswordUser;
 
@@ -31,7 +30,7 @@ public class UpdateUsersLogin extends AppCompatActivity {
         setContentView(R.layout.activity_update_users_admin);
         setTitle("Activity Adicionar Usuários");
 
-        DataModel.getInstance().createDatabase(UpdateUsersLogin.this);
+        DataModel.getInstance().createDatabase(UsersLoginUpdate.this);
 
 
 
@@ -83,7 +82,7 @@ public class UpdateUsersLogin extends AppCompatActivity {
 
             finish();
         }else{
-            AlertDialog.Builder builder = new AlertDialog.Builder( UpdateUsersLogin.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder( UsersLoginUpdate.this);
             builder.setTitle(R.string.attention);
             builder.setMessage(R.string.empty_contact_alert_msg);
             builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {

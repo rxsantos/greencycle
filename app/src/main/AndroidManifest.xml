@@ -45,13 +45,13 @@
             android:name=".controller.FormEmpresa"
             android:exported="false" />
         <activity
-            android:name=".controller.AddUsersLogin"
+            android:name=".controller.UsersLoginAdd"
             android:exported="false" />
         <activity
             android:name=".controller.Contact"
             android:exported="false" />
         <activity
-            android:name=".controller.UpdateUsersLogin"
+            android:name=".controller.UsersLoginUpdate"
             android:exported="false" />
         <activity
             android:name=".controller.FormPedidos"
