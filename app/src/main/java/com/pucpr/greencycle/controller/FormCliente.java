@@ -1,5 +1,6 @@
 package com.pucpr.greencycle.controller;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,8 +27,9 @@ import java.util.ArrayList;
 public class FormCliente extends AppCompatActivity {
 
     Button btnClient;
+    RadioButton Cvidro, Cplastico, Cmetal, Cpapel, Coutros;
     TextView editTextEmailCl, editTextNameCl;
-    String idlogin, EmailHolder;
+    String idlogin, EmailHolder, TipoReciclavelCliente;
     String F_Result = "Usuário não Encontrado";
     Boolean EditTextEmptyHolder;
     SQLiteDatabase sqLiteDatabaseObj;
@@ -59,6 +62,11 @@ ContactDatabase database;
         editTextPostalCl = findViewById(R.id.editTextPostalCl);
         editTextCountryCl = findViewById(R.id.editTextCountryCl);
         editTextResiduoCl = findViewById(R.id.editTextResiduoCl);
+        Cvidro = (RadioButton) findViewById(R.id.radioButtonCvidro);
+        Cplastico = (RadioButton) findViewById(R.id.radioButtonCplastico);
+        Cmetal = (RadioButton) findViewById(R.id.radioButtonCmetal);
+        Cpapel = (RadioButton) findViewById(R.id.radioButtonCpapel);
+        Coutros = (RadioButton) findViewById(R.id.radioButtonCoutros);
 
 
         database = new ContactDatabase(this);
@@ -66,9 +74,8 @@ ContactDatabase database;
         //DataModel.getInstance().createClientDatabase(FormCliente.this);
 
 
-
         ArrayList<Client> clients = database.getClientsFromDB();
-        for (Client c:clients) {
+        for (Client c : clients) {
             c.print();
         }
 
@@ -97,6 +104,7 @@ ContactDatabase database;
         editTextCountryCl.setText(Pais);
         editTextResiduoCl.setText(TipoResiduo);
 
+        /*
         btnClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,6 +112,7 @@ ContactDatabase database;
                 CheckingEmailAlreadyExistsOrNot();
             }
         });
+    }*/
     }
     public void EmptyEditTexBeforeBack(){
         //editTextNameCl.getText().clear();
@@ -113,6 +122,8 @@ ContactDatabase database;
 
 
     public void formClienteButtonOnClick(View v){
+        CheckEditTextStatus();
+        CheckingEmailAlreadyExistsOrNot();
 
     }
     public void InsertData(){
@@ -207,9 +218,22 @@ ContactDatabase database;
         //System.out.println(PaisHolder);
         String TipoResiduoHolder = editTextResiduoCl.getText().toString();
         //System.out.println(TipoResiduoHolder);
+        if (Cvidro.isChecked()){
+            TipoReciclavelCliente = "Vidro";
+        } else if (Cplastico.isChecked()) {
+            TipoReciclavelCliente = "Plástico";
+        } else if (Cmetal.isChecked()) {
+            TipoReciclavelCliente = "Metal";
+        } else if (Cpapel.isChecked()) {
+            TipoReciclavelCliente = "Papel";
+        }else if(Coutros.isChecked()){
+            TipoReciclavelCliente = "Outros";
+        }else {
+            TipoReciclavelCliente = "";
+        }
 
 
-        if (TextUtils.isEmpty(NomeHolder) || TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(CpfHolder) || TextUtils.isEmpty(PhoneHolder) || TextUtils.isEmpty(EstadoHolder) || TextUtils.isEmpty(CidadeHolder) || TextUtils.isEmpty(EnderecoHolder) || TextUtils.isEmpty(CepHolder) || TextUtils.isEmpty(PaisHolder) || TextUtils.isEmpty(TipoResiduoHolder)){
+        if (TextUtils.isEmpty(NomeHolder) || TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(CpfHolder) || TextUtils.isEmpty(PhoneHolder) || TextUtils.isEmpty(EstadoHolder) || TextUtils.isEmpty(CidadeHolder) || TextUtils.isEmpty(EnderecoHolder) || TextUtils.isEmpty(CepHolder) || TextUtils.isEmpty(PaisHolder) || TextUtils.isEmpty(TipoResiduoHolder) || TextUtils.isEmpty(TipoReciclavelCliente)){
             EditTextEmptyHolder = false;
 
         } else{
@@ -270,6 +294,7 @@ ContactDatabase database;
         editTextResiduoCl.getText().clear();
     }
 
+    @SuppressLint("MissingSuperCall")
     public void onBackPressed() {
         //EmptyEditTexBeforeBack();
         //super.onBackPressed();

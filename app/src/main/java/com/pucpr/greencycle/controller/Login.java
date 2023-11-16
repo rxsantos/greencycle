@@ -131,7 +131,7 @@ public class Login extends AppCompatActivity {
         }
         else {
             EditTextEmptyHolder = true ;
-            //Toast.makeText(Login.this,"Login bem sucedido",Toast.LENGTH_LONG).show();
+            //Toast.makeText(Login.this,"Login bem sucedido!",Toast.LENGTH_LONG).show();
         }
     }
     // Checking entered password from SQLite database email associated password.
@@ -139,7 +139,7 @@ public class Login extends AppCompatActivity {
         if(TempPassword.equalsIgnoreCase(PasswordHolder))
         {
             if(op.equals("Cliente")){
-                //Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
+                Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_SHORT).show();
                 // Going to Dashboard activity after login success message.
                 Intent intent = new Intent(Login.this, ApresentacaoCliente.class);
                 // Sending Email to Dashboard Activity using intent.
@@ -151,7 +151,7 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
 
             }else if(op.equals("Empresa")){
-                //Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_LONG).show();
+                Toast.makeText(Login.this,"Login bem Sucedido!",Toast.LENGTH_SHORT).show();
                 // Going to Dashboard activity after login success message.
                 Intent intent = new Intent(Login.this, ApresentacaoEmpresa.class);
                 // Sending Email to Dashboard Activity using intent.
@@ -172,7 +172,7 @@ public class Login extends AppCompatActivity {
 
         }
         else {
-            //Toast.makeText(Login.this,"Nome de usuário ou senha estão incorretos, tente novamente!",Toast.LENGTH_LONG).show();
+            Toast.makeText(Login.this,"Nome de usuário ou senha estão incorretos, tente novamente!",Toast.LENGTH_SHORT).show();
             System.out.println(TempPassword);
         }
         TempPassword = "NOT_FOUND" ;

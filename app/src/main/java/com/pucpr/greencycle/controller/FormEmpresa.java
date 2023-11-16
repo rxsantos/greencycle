@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,8 +25,9 @@ import java.util.ArrayList;
 public class FormEmpresa extends AppCompatActivity {
 
     Button btnCompany;
+    RadioButton Evidro, Eplastico, Emetal, Epapel, Eoutros;
     TextView editTextEmailEmp, editTextNameEmp;
-    String idlogin, EmailHolder;
+    String idlogin, EmailHolder,TipoReciclavelEmpresa;
     String F_Result = "Usuário não Encontrado";
     Boolean EditTextEmptyHolder;
     SQLiteDatabase sqLiteDatabaseObj;
@@ -62,6 +64,11 @@ public class FormEmpresa extends AppCompatActivity {
         editTextCountryEmp = findViewById(R.id.editTextCountryEmp);
         editTextRegiaoEmp = findViewById(R.id.editTextRegiaoEmp);
         editTextResiduoEmp = findViewById(R.id.editTextResiduoEmp);
+        Evidro = (RadioButton) findViewById(R.id.radioButtonEvidro);
+        Eplastico = (RadioButton) findViewById(R.id.radioButtonEplastico);
+        Emetal = (RadioButton) findViewById(R.id.radioButtonEmetal);
+        Epapel = (RadioButton) findViewById(R.id.radioButtonEpapel);
+        Eoutros = (RadioButton) findViewById(R.id.radioButtonEoutros);
 
         database = new ContactDatabase(this);
         //DataModel.getInstance().createDatabase(FormCliente.this);
@@ -221,7 +228,21 @@ public class FormEmpresa extends AppCompatActivity {
         String RegionHolder = editTextRegiaoEmp.getText().toString();
         //System.out.println(RegionHolder);
 
-        if (TextUtils.isEmpty(NomeHolder) || TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(CnpjHolder) || TextUtils.isEmpty(PhoneHolder) || TextUtils.isEmpty(EstadoHolder) || TextUtils.isEmpty(CidadeHolder) || TextUtils.isEmpty(EnderecoHolder) || TextUtils.isEmpty(CepHolder) || TextUtils.isEmpty(PaisHolder) || TextUtils.isEmpty(TipoResiduoHolder) || TextUtils.isEmpty(RegionHolder)){
+        if (Evidro.isChecked()){
+            TipoReciclavelEmpresa = "Vidro";
+        } else if (Eplastico.isChecked()) {
+            TipoReciclavelEmpresa = "Plástico";
+        } else if (Emetal.isChecked()) {
+            TipoReciclavelEmpresa = "Metal";
+        } else if (Epapel.isChecked()) {
+            TipoReciclavelEmpresa = "Papel";
+        }else if(Eoutros.isChecked()){
+            TipoReciclavelEmpresa = "Outros";
+        }else {
+            TipoReciclavelEmpresa = "";
+        }
+
+        if (TextUtils.isEmpty(NomeHolder) || TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(CnpjHolder) || TextUtils.isEmpty(PhoneHolder) || TextUtils.isEmpty(EstadoHolder) || TextUtils.isEmpty(CidadeHolder) || TextUtils.isEmpty(EnderecoHolder) || TextUtils.isEmpty(CepHolder) || TextUtils.isEmpty(PaisHolder) || TextUtils.isEmpty(TipoResiduoHolder) || TextUtils.isEmpty(RegionHolder) || TextUtils.isEmpty(TipoReciclavelEmpresa)){
             EditTextEmptyHolder = false;
             //Toast.makeText(this, "Dados não existem!", Toast.LENGTH_SHORT).show();
 

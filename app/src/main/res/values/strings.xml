@@ -40,7 +40,8 @@
     <string name="endere_empresa">Endereço</string>
     <string name="cep_empresa">CEP</string>
     <string name="pais_empresa">País</string>
-    <string name="residuo_empresa">Quais tipos de resíduos você trabalha</string>
+    <string name="residuo_empresa">Detalhe os materiais que você trabalha.</string>
+    <string name="residuo_cliente">Detalhe o material a descartar.</string>
     <string name="regiao_empresa">Qual região você atua? (Nacional ou Estadual)</string>
     <string name="bt_limpar_emp">Limpar</string>
     <string name="bt_salvar_emp">Complete ou Atualize seu Cadastro</string>
@@ -75,7 +76,6 @@
     <string name="dados_usuario">Cadastro de Usuário</string>
     <string name="telefone_whatsapp_cliente">Telefone (WhatsApp)</string>
     <string name="endereco_cliente">Endereço</string>
-    <string name="tipo_residuo_cliente">Tipo de resídio que deseja descartar?</string>
     <string name="administrar_cadastros">Administrar Cadastros</string>
     <string-array name="cadastros">
         <item>Contas de Usuários</item>
@@ -88,6 +88,11 @@
     <string name="informe_material_coleta">É muito simples! Apenas informe qual material você deseja descartar e em seguida, selecione uma empresa de reciclagem mais perto de você!</string>
     <string name="informe_material_coleta_empresa">É muito simples realizar uma retirada de pedido de coleta! Apenas selecione o usuário mais perto de você e agende a retirada conforme o tipo de material reciclável que você trabalha!</string>
     <string name="agendar_retirada">Agendar Retirada</string>
+    <string name="vidro">Vidro</string>
+    <string name="metal">Metal</string>
+    <string name="outros">Outros</string>
+    <string name="papel">Papel</string>
+    <string name="plastico">Plástico</string>
 
 
 </resources>
