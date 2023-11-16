@@ -93,7 +93,8 @@ public class FormEmpresa extends AppCompatActivity {
         String Endereco = extras.getString("EXTRA_ADDRESS");
         String Cep = extras.getString("EXTRA_ZIPCODE");
         String Pais = extras.getString("EXTRA_COUNTRY");
-        String TipoResiduo = extras.getString("EXTRA_RESIDUO");
+        //String Residuo = extras.getString("EXTRA_RESIDUO");
+        String DescResiduo = extras.getString("EXTRA_DESCRESIDUO");
         String Region = extras.getString("EXTRA_REGION");
         editTextNameEmp.setText(Name);
         editTextEmailEmp.setText(Email);
@@ -104,7 +105,7 @@ public class FormEmpresa extends AppCompatActivity {
         editTextAddressEmp.setText(Endereco);
         editTextPostalEmp.setText(Cep);
         editTextCountryEmp.setText(Pais);
-        editTextResiduoEmp.setText(TipoResiduo);
+        editTextResiduoEmp.setText(DescResiduo);
         editTextRegiaoEmp.setText(Region);
 
 
@@ -140,9 +141,9 @@ public class FormEmpresa extends AppCompatActivity {
             String Endereco = editTextAddressEmp.getText().toString();
             String Cep = editTextPostalEmp.getText().toString();
             String Pais = editTextCountryEmp.getText().toString();
-            String TipoResiduo = editTextResiduoEmp.getText().toString();
+            String DescResiduo = editTextResiduoEmp.getText().toString();
             String Regiao = editTextRegiaoEmp.getText().toString();
-            database.createCompanyInDB(new Company(idlogin, Nome, Email, Cnpj, Phone, Estado, Cidade, Endereco, Cep, Pais, TipoResiduo, Regiao));
+            database.createCompanyInDB(new Company(idlogin, Nome, Email, Cnpj, Phone, Estado, Cidade, Endereco, Cep, Pais, TipoReciclavelEmpresa, DescResiduo, Regiao));
             database.close();
             Toast.makeText(this, "Dados Cadastrados com Sucesso! ", Toast.LENGTH_SHORT).show();
             finish();
@@ -177,9 +178,9 @@ public class FormEmpresa extends AppCompatActivity {
             String Endereco = editTextAddressEmp.getText().toString();
             String Cep = editTextPostalEmp.getText().toString();
             String Pais = editTextCountryEmp.getText().toString();
-            String TipoResiduo = editTextResiduoEmp.getText().toString();
+            String DescResiduo = editTextResiduoEmp.getText().toString();
             String Regiao = editTextRegiaoEmp.getText().toString();
-            database.updateCompanyInDB(new Company(index, idlogin, Nome, Email, Cnpj, Phone, Estado, Cidade, Endereco, Cep, Pais, TipoResiduo, Regiao));
+            database.updateCompanyInDB(new Company(index, idlogin, Nome, Email, Cnpj, Phone, Estado, Cidade, Endereco, Cep, Pais, TipoReciclavelEmpresa, DescResiduo, Regiao));
             database.close();
             Toast.makeText(this, "Dados Atualizados com Sucesso! ", Toast.LENGTH_SHORT).show();
             finish();

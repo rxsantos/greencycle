@@ -7,9 +7,9 @@ public class Company {
 
     private long id;
 
-    private String idlogin, name, email, cnpj, phone, state,  city, address, zipcode, country, residuo, region;
+    private String idlogin, name, email, cnpj, phone, state,  city, address, zipcode, country,residuo, descresiduo, region;
 
-    public Company(String idlogin, String name, String email, String cnpj, String phone, String state, String city, String address, String zipcode, String country, String residuo, String region) {
+    public Company(String idlogin, String name, String email, String cnpj, String phone, String state, String city, String address, String zipcode, String country, String residuo, String descresiduo, String region) {
         this.idlogin = idlogin;
         this.name = name;
         this.email = email;
@@ -21,10 +21,11 @@ public class Company {
         this.zipcode = zipcode;
         this.country = country;
         this.residuo = residuo;
+        this.descresiduo = descresiduo;
         this.region = region;
     }
 
-    public Company(long id, String idlogin, String name, String email, String cnpj, String phone, String state, String city, String address, String zipcode, String country, String residuo, String region) {
+    public Company(long id, String idlogin, String name, String email, String cnpj, String phone, String state, String city, String address, String zipcode, String country, String residuo, String descresiduo,String region) {
         this.id = id;
         this.idlogin = idlogin;
         this.name = name;
@@ -37,7 +38,16 @@ public class Company {
         this.zipcode = zipcode;
         this.country = country;
         this.residuo = residuo;
+        this.descresiduo = descresiduo;
         this.region = region;
+    }
+
+    public String getDescresiduo() {
+        return descresiduo;
+    }
+
+    public void setDescresiduo(String descresiduo) {
+        this.descresiduo = descresiduo;
     }
 
     public long getId() {
@@ -145,6 +155,6 @@ public class Company {
     }
     public void print(){
         Log.v("SQLDatabase", "Contact["+id+"]:" + " Idlogin: " +idlogin+ " Nome: " +name+" Email: "+email+ " CPF: "+cnpj+ " Cidade: " +city+ " Estado: " +state+
-                " Endereço: " +address+ " Residio: " + residuo+ " Regiao: " +region);
+                " Endereço: " +address+ " Residio: " + residuo+ " DescResiduo: "+descresiduo+" Regiao: " +region);
     }
 }

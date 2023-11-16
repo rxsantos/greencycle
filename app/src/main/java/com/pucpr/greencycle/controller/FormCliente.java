@@ -44,6 +44,7 @@ public class FormCliente extends AppCompatActivity {
             editTextPostalCl,
             editTextCountryCl,
             editTextResiduoCl;
+
 ContactDatabase database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +93,7 @@ ContactDatabase database;
         String Endereco = extras.getString("EXTRA_ADDRESS");
         String Cep = extras.getString("EXTRA_ZIPCODE");
         String Pais = extras.getString("EXTRA_COUNTRY");
-        String TipoResiduo = extras.getString("EXTRA_RESIDUO");
+        String DescResiduo = extras.getString("EXTRA_DESCRESIDUO");
         editTextNameCl.setText(Name);
         editTextEmailCl.setText(Email);
         editTextCpf.setText(Cpf);
@@ -102,7 +103,7 @@ ContactDatabase database;
         editTextAddressCl.setText(Endereco);
         editTextPostalCl.setText(Cep);
         editTextCountryCl.setText(Pais);
-        editTextResiduoCl.setText(TipoResiduo);
+        editTextResiduoCl.setText(DescResiduo);
 
         /*
         btnClient.setOnClickListener(new View.OnClickListener() {
@@ -137,8 +138,8 @@ ContactDatabase database;
             String Endereco = editTextAddressCl.getText().toString();
             String Cep = editTextPostalCl.getText().toString();
             String Pais = editTextCountryCl.getText().toString();
-            String TipoResiduo = editTextResiduoCl.getText().toString();
-            database.createClientInDB(new Client(idlogin, Nome, Email, Cpf, Phone, Estado, Cidade, Endereco, Cep, Pais, TipoResiduo));
+            String DescResiduo = editTextResiduoCl.getText().toString();
+            database.createClientInDB(new Client(idlogin, Nome, Email, Cpf, Phone, Estado, Cidade, Endereco, Cep, Pais,TipoReciclavelCliente,DescResiduo));
             database.close();
             Toast.makeText(this, "Dados Cadastrados com Sucesso! ", Toast.LENGTH_SHORT).show();
             finish();
@@ -172,8 +173,8 @@ ContactDatabase database;
             String Endereco = editTextAddressCl.getText().toString();
             String Cep = editTextPostalCl.getText().toString();
             String Pais = editTextCountryCl.getText().toString();
-            String TipoResiduo = editTextResiduoCl.getText().toString();
-            database.updateClientInDB(new Client(index,idlogin, Nome, Email, Cpf, Phone, Estado, Cidade, Endereco, Cep, Pais, TipoResiduo));
+            String DescResiduo = editTextResiduoCl.getText().toString();
+            database.updateClientInDB(new Client(index,idlogin, Nome, Email, Cpf, Phone, Estado, Cidade, Endereco, Cep, Pais, TipoReciclavelCliente ,DescResiduo));
             database.close();
             Toast.makeText(this, "Dados Atualizados com Sucesso!", Toast.LENGTH_SHORT).show();
             finish();

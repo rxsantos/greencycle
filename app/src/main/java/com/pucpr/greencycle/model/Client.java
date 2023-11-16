@@ -5,9 +5,9 @@ import android.util.Log;
 public class Client {
     private long id;
 
-    private String idlogin, name, email, cpf, phone, state, city, address, zipcode, country, residuo;
+    private String idlogin, name, email, cpf, phone, state, city, address, zipcode, country, residuo, descresiduo;
 
-    public Client(String idlogin, String name, String email, String cpf, String phone, String state, String city, String address, String zipcode, String country, String residuo) {
+    public Client(String idlogin, String name, String email, String cpf, String phone, String state, String city, String address, String zipcode, String country,String residuo, String descresiduo) {
         this.idlogin = idlogin;
         this.name = name;
         this.email = email;
@@ -19,9 +19,11 @@ public class Client {
         this.zipcode = zipcode;
         this.country = country;
         this.residuo = residuo;
+        this.descresiduo = descresiduo;
     }
 
-    public Client(long id, String idlogin, String name, String email, String cpf, String phone, String state, String city, String address, String zipcode, String country, String residuo) {
+
+    public Client(long id, String idlogin, String name, String email, String cpf, String phone, String state, String city, String address, String zipcode, String country, String residuo,String descresiduo) {
         this.id = id;
         this.idlogin = idlogin;
         this.name = name;
@@ -34,6 +36,7 @@ public class Client {
         this.zipcode = zipcode;
         this.country = country;
         this.residuo = residuo;
+        this.descresiduo = descresiduo;
     }
 
     public String getIdlogin() {
@@ -132,9 +135,16 @@ public class Client {
         this.residuo = residuo;
     }
 
+    public String getDescresiduo() {
+        return descresiduo;
+    }
+
+    public void setDescresiduo(String descresiduo) {
+        this.descresiduo = descresiduo;
+    }
     public void print(){
         Log.v("SQLDatabase", "Contact["+id+"]:" + " Idlogin: " +idlogin+ " Nome: " +name+" Email: "+email+ " CPF: "+cpf+ " Cidade: " +city+ " Estado: " +state+
-                " Endereço: " +address+ " Residio: " + residuo);
+                " Endereço: " +address+ " Residio: " + residuo+ " DescResiduo: "+ descresiduo);
     }
 
 }

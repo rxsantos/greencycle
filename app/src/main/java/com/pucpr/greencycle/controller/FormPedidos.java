@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.pucpr.greencycle.R;
 import com.pucpr.greencycle.model.DataModel;
@@ -14,6 +15,8 @@ public class FormPedidos extends AppCompatActivity {
 
     FormPedidosAdapter adapter = new FormPedidosAdapter();
     RecyclerView recyclerViewPedidos;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
