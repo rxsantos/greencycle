@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class ContactDatabase extends SQLiteOpenHelper {
     //Iniciar Variaveis
     private static final String DB_NAME = "contacts.sqlite";
-    private static final int DB_VERSION = 5;
+    private static final int DB_VERSION = 6;
     private static final String DB_TABLE = "Contact";
     private static final String DB_TABLE_CLIENT = "Cliente";
     private static final String DB_TABLE_COMPANY = "Empresa";
@@ -32,6 +32,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
     private static final String COL_ZIPCODE = "zipcode";
     private static final String COL_COUNTRY = "country";
     private static final String COL_RESIDUO = "residuo";
+    private static final String COL_DESC_RESIDUO = "descresiduo";
     private static final String COL_REGION = "region";
 
     //Criar Tabelas
@@ -54,7 +55,8 @@ public class ContactDatabase extends SQLiteOpenHelper {
             COL_ADDRESS + " TEXT, "+
             COL_ZIPCODE + " TEXT, "+
             COL_COUNTRY + " TEXT, "+
-            COL_RESIDUO + " TEXT)";
+            COL_RESIDUO + " TEXT, "+
+            COL_DESC_RESIDUO + " TEXT)";
 
     private static final String CREATE_TABLE_COMPANY = "Create Table if not exists "+DB_TABLE_COMPANY + "( "+
             COL_ID + " Integer primary key autoincrement, "+
@@ -69,6 +71,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
             COL_ZIPCODE + " TEXT, "+
             COL_COUNTRY + " TEXT, "+
             COL_RESIDUO + " TEXT, "+
+            COL_DESC_RESIDUO + " TEXT, "+
             COL_REGION + " TEXT)";
 
     private Context context;
@@ -124,6 +127,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values_client.put(COL_ZIPCODE, c.getZipcode());
         values_client.put(COL_COUNTRY, c.getCountry());
         values_client.put(COL_RESIDUO, c.getResiduo());
+        values_client.put(COL_DESC_RESIDUO, c.getDescresiduo());
         long id = database.insert(DB_TABLE_CLIENT, null, values_client);
         database.close();
         return id;
@@ -145,6 +149,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values_company.put(COL_ZIPCODE, c.getZipcode());
         values_company.put(COL_COUNTRY, c.getCountry());
         values_company.put(COL_RESIDUO, c.getResiduo());
+        values_company.put(COL_DESC_RESIDUO, c.getDescresiduo());
         values_company.put(COL_REGION, c.getRegion());
         long id = database.insert(DB_TABLE_COMPANY, null, values_company);
         database.close();
@@ -182,6 +187,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values_client.put(COL_ZIPCODE, c.getZipcode());
         values_client.put(COL_COUNTRY, c.getCountry());
         values_client.put(COL_RESIDUO, c.getResiduo());
+        values_client.put(COL_DESC_RESIDUO, c.getDescresiduo());
         long id = database.insert(DB_TABLE_CLIENT, null, values_client);
         database.close();
         return id;
@@ -204,6 +210,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values_company.put(COL_ZIPCODE, c.getZipcode());
         values_company.put(COL_COUNTRY, c.getCountry());
         values_company.put(COL_RESIDUO, c.getResiduo());
+        values_company.put(COL_DESC_RESIDUO, c.getDescresiduo());
         values_company.put(COL_REGION, c.getRegion());
         long id = database.insert(DB_TABLE_COMPANY, null, values_company);
         database.close();
@@ -267,8 +274,10 @@ public class ContactDatabase extends SQLiteOpenHelper {
                         cursor.getColumnIndexOrThrow(COL_COUNTRY));
                 String residuo = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_RESIDUO));
+                String descresiduo = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_DESC_RESIDUO));
                 clients.add(
-                        new Client(id, idlogin, name, email, cpf, phone, state,  city, address, zipcode, country, residuo));
+                        new Client(id, idlogin, name, email, cpf, phone, state,  city, address, zipcode, country, residuo, descresiduo));
             }while (cursor.moveToNext());
         }
         database.close();
@@ -306,10 +315,12 @@ public class ContactDatabase extends SQLiteOpenHelper {
                         cursor.getColumnIndexOrThrow(COL_COUNTRY));
                 String residuo = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_RESIDUO));
+                String descresiduo = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_DESC_RESIDUO));
                 String region = cursor.getString(
                         cursor.getColumnIndexOrThrow(COL_REGION));
                 companies.add(
-                        new Company(id, idlogin, name, email, cnpj, phone, state,  city, address, zipcode, country, residuo, region));
+                        new Company(id, idlogin, name, email, cnpj, phone, state,  city, address, zipcode, country, residuo, descresiduo, region));
             }while (cursor.moveToNext());
         }
         database.close();
@@ -347,6 +358,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values_client.put(COL_ZIPCODE, c.getZipcode());
         values_client.put(COL_COUNTRY, c.getCountry());
         values_client.put(COL_RESIDUO, c.getResiduo());
+        values_client.put(COL_DESC_RESIDUO, c.getDescresiduo());
         String id = String.valueOf(c.getId());
         int count = database.update(DB_TABLE_CLIENT, values_client,
                 COL_ID + "=?", new String[]{id});
@@ -370,6 +382,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values_company.put(COL_ZIPCODE, c.getZipcode());
         values_company.put(COL_COUNTRY, c.getCountry());
         values_company.put(COL_RESIDUO, c.getResiduo());
+        values_company.put(COL_DESC_RESIDUO, c.getDescresiduo());
         values_company.put(COL_REGION, c.getRegion());
         String id = String.valueOf(c.getId());
         int count = database.update(DB_TABLE_COMPANY, values_company,

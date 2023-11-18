@@ -17,7 +17,7 @@ public class ApresentacaoCliente extends AppCompatActivity {
     TextView Name;
     Cursor cursor;
     String NameHolder, EmailHolder, IdentHolder="",idlogin, CpfHolder, PhoneHolder, EstadoHolder,
-            CidadeHolder, EnderecoHolder, CepHolder, PaisHolder, TipoResiduoHolder;
+            CidadeHolder, EnderecoHolder, CepHolder, PaisHolder, TipoResiduoHolder,DescResiduoHolder;
     int IdHolder;
 
     ContactDatabase database;
@@ -69,6 +69,7 @@ public class ApresentacaoCliente extends AppCompatActivity {
                 CepHolder = cursor.getString(cursor.getColumnIndexOrThrow("zipcode"));
                 PaisHolder = cursor.getString(cursor.getColumnIndexOrThrow("country"));
                 TipoResiduoHolder = cursor.getString(cursor.getColumnIndexOrThrow("residuo"));
+                DescResiduoHolder = cursor.getString(cursor.getColumnIndexOrThrow("descresiduo"));
 
                 //Fechando cursor.
                 //cursor.close();
@@ -94,6 +95,7 @@ public class ApresentacaoCliente extends AppCompatActivity {
         extras.putString("EXTRA_ZIPCODE",CepHolder);
         extras.putString("EXTRA_COUNTRY",PaisHolder);
         extras.putString("EXTRA_RESIDUO",TipoResiduoHolder);
+        extras.putString("EXTRA_DESCRESIDUO",DescResiduoHolder);
         intent.putExtras(extras);
         startActivity(intent);
     }
