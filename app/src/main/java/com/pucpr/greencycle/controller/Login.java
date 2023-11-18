@@ -44,7 +44,7 @@ public class Login extends AppCompatActivity {
         database = new ContactDatabase(this);
 
         //database.createContactInDB(new Contact("Roberto Xavier","roberto@gmail.com", "1234", "Admin"));
-        database.insertContactInDB(new com.pucpr.greencycle.model.Contact("Administrador", "admin@admin.com", "admin", "Admin"));
+        //database.insertContactInDB(new com.pucpr.greencycle.model.Contact("Administrador", "admin@admin.com", "admin", "Admin"));
 
 
         /*ArrayList<com.pucpr.greencycle.model.Contact>contacts = database.getContactsFromDB();

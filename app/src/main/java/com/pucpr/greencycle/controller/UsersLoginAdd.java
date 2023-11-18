@@ -84,73 +84,7 @@ public class UsersLoginAdd extends AppCompatActivity {
         });
     }
 
-    /*
-    @SuppressLint("MissingSuperCall")
-    public void onBackPressed(){
-        String Nome = editNameUser.getText().toString();
-        String Email = editEmailUser.getText().toString();
-        String Password = editPasswordUser.getText().toString();
 
-        if (Admin.isChecked()){
-            Op = "Admin";
-        }else if(Empresa.isChecked()){
-            Op = "Empresa";
-        } else {
-            Op = "Cliente";
-        }
-        if (Nome.length() > 1 && Email.length() > 1 && Password.length() > 1) {
-            if (index == -1) {
-                DataModel.getInstance().addContact(
-                        new Contact(Nome, Email, Password, Op)
-                );
-            } else {
-                Contact c = DataModel.getInstance().getContact(index);
-                c.setName(Nome);
-                c.setEmail(Email);
-                c.setPassword(Password);
-                c.setOp(Op);
-                DataModel.getInstance().updateContact(c, index);
-            }
-            finish();
-        }else{
-            AlertDialog.Builder builder = new AlertDialog.Builder( AddUsers.this);
-            builder.setTitle(R.string.attention);
-            builder.setMessage(R.string.empty_contact_alert_msg);
-            builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    finish();
-                }
-            });
-            builder.setNegativeButton(android.R.string.no,null);
-            builder.create().show();
-
-        }
-    }*/
-
-/*
-    public void userButtonOnClick() {
-        String name = editNameUser.getText().toString();
-        String email = editEmailUser.getText().toString();
-        String password = editPasswordUser.getText().toString();
-
-        if (Admin.isChecked()) {
-            Op = "Admin";
-        } else if (Empresa.isChecked()) {
-            Op = "Empresa";
-        } else {
-            Op = "Cliente";
-        }
-        if (name.length() > 1 && email.length() > 1 && password.length() > 1) {
-
-            DataModel.getInstance().addContact(
-                    new Contact(name, email, password, Op)
-
-            );
-            Toast.makeText(this, "Usuário adicionado com Sucesso!", Toast.LENGTH_SHORT).show();
-        }
-
-    } */
 
 
     //SQLite database build method
@@ -184,7 +118,7 @@ public class UsersLoginAdd extends AppCompatActivity {
             sqLiteDatabaseObj.close();
 
             //Printing toast message after done insert
-            //Toast.makeText(UsersLoginAdd.this, "Usuário Cadastrado com Sucesso!", Toast.LENGTH_LONG).show();
+            Toast.makeText(UsersLoginAdd.this, "Usuário Cadastrado com Sucesso!", Toast.LENGTH_LONG).show();
             finish();
         }
         // This block will execute if any of the registration EditText is empty.

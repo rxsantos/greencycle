@@ -15,7 +15,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/retirar_coleta_empresa"
         android:textAlignment="center"
-        android:textColor="#8BC34A"
+        android:textColor="#6ABD21"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,13 +80,13 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/btRetirarColeta"
+        app:layout_constraintBottom_toTopOf="@+id/btnEnviarSolicitacao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPedidoColeta" />
 
     <Button
-        android:id="@+id/btRetirarColeta"
+        android:id="@+id/btnEnviarSolicitacao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

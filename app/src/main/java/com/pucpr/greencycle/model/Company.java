@@ -6,7 +6,6 @@ import android.util.Log;
 public class Company {
 
     private long id;
-
     private String idlogin, name, email, cnpj, phone, state,  city, address, zipcode, country,residuo, descresiduo, region;
 
     public Company(String idlogin, String name, String email, String cnpj, String phone, String state, String city, String address, String zipcode, String country, String residuo, String descresiduo, String region) {
@@ -154,7 +153,13 @@ public class Company {
         this.region = region;
     }
     public void print(){
-        Log.v("SQLDatabase", "Contact["+id+"]:" + " Idlogin: " +idlogin+ " Nome: " +name+" Email: "+email+ " CPF: "+cnpj+ " Cidade: " +city+ " Estado: " +state+
+        Log.v("SQLDatabase", "Contact["+id+"]:" + " Idlogin: " +idlogin+ " Nome: " +name+" Email: "+email+ " CNPJ: "+cnpj+ " Cidade: " +city+ " Estado: " +state+
                 " Endereço: " +address+ " Residio: " + residuo+ " DescResiduo: "+descresiduo+" Regiao: " +region);
     }
+    /*public String toString (){
+        return "Company{" +
+                "name='" + name + '\''+
+                ", isSelected=" + isSelected +
+                '}';
+    }*/
 }

@@ -16,11 +16,17 @@ public class ContactDatabase extends SQLiteOpenHelper {
     private static final String DB_TABLE = "Contact";
     private static final String DB_TABLE_CLIENT = "Cliente";
     private static final String DB_TABLE_COMPANY = "Empresa";
+    private static final String DB_TABLE_REQUEST = "Solicitacao";
     private static final String COL_ID = "id";
     private static final String COL_ID_LOGIN_COMPANY = "company_idlogin";
     private static final String COL_ID_LOGIN_CLIENT = "client_idlogin";
     private static final String COL_NAME =  "name";
+    private static final String COL_NAME_COMPANY =  "company_name";
+    private static final String COL_NAME_CLIENT =  "client_name";
     private static final String COL_EMAIL = "email";
+    private static final String COL_EMAIL_COMPANY = "company_email";
+    private static final String COL_EMAIL_CLIENT = "client_email";
+    private static final String COL_CONTACT_COMPANY = "company_contact";
     private static final String COL_PASSWORD = "password";
     private static final String COL_OP = "op";
     private static final String COL_CPF = "cpf";
@@ -34,8 +40,10 @@ public class ContactDatabase extends SQLiteOpenHelper {
     private static final String COL_RESIDUO = "residuo";
     private static final String COL_DESC_RESIDUO = "descresiduo";
     private static final String COL_REGION = "region";
+    private static final String COL_DATE = "date";
+    private static final String COL_HOUR = "hour";
 
-    //Criar Tabelas
+    //Criar Tabelas (Login, Cliente, Empresa e Solicitacoes)
     private static final String CREATE_TABLE_LOGIN = "Create Table if not exists "+DB_TABLE + "( "+
             COL_ID + " Integer primary key autoincrement, "+
             COL_NAME + " TEXT, "+
@@ -74,18 +82,45 @@ public class ContactDatabase extends SQLiteOpenHelper {
             COL_DESC_RESIDUO + " TEXT, "+
             COL_REGION + " TEXT)";
 
+    private static final String CREATE_TABLE_REQUEST = "Create Table if not exists "+DB_TABLE_REQUEST + "( "+
+            COL_ID + " Integer primary key autoincrement, "+
+            COL_ID_LOGIN_CLIENT + " TEXT, "+
+            COL_NAME_CLIENT + " TEXT, "+
+            COL_EMAIL_CLIENT + " TEXT, "+
+            COL_ID_LOGIN_COMPANY + " TEXT, "+
+            COL_NAME_COMPANY + " TEXT, "+
+            COL_EMAIL_COMPANY + " TEXT, "+
+            COL_CONTACT_COMPANY + " TEXT, "+
+            COL_DATE + " TEXT, "+
+            COL_HOUR + " TEXT, "+
+            COL_RESIDUO + " TEXT, "+
+            COL_DESC_RESIDUO + " TEXT)";
+            /*
+            COL_CNPJ + " TEXT, "+
+            COL_CPF + " TEXT, "+
+            COL_PHONE + " TEXT, "+
+            COL_STATE + " TEXT, "+
+            COL_CITY + " TEXT, "+
+            COL_ADDRESS + " TEXT, "+
+            COL_ZIPCODE + " TEXT, "+
+            COL_COUNTRY + " TEXT, "+
+            COL_RESIDUO + " TEXT, "+
+            COL_DESC_RESIDUO + " TEXT, "+
+            COL_REGION + " TEXT)";*/
     private Context context;
     public ContactDatabase(Context context){
         super(context, DB_NAME,null,DB_VERSION);
         Log.d("table", CREATE_TABLE_LOGIN);
         Log.d("table", CREATE_TABLE_CLIENT);
         Log.d("table", CREATE_TABLE_COMPANY);
+        Log.d("table", CREATE_TABLE_REQUEST);
     }
 
     public void onCreate(SQLiteDatabase sqLiteDatabase){
         sqLiteDatabase.execSQL(CREATE_TABLE_LOGIN);
         sqLiteDatabase.execSQL(CREATE_TABLE_CLIENT);
         sqLiteDatabase.execSQL(CREATE_TABLE_COMPANY);
+        sqLiteDatabase.execSQL(CREATE_TABLE_REQUEST);
     }
 
     @Override
@@ -93,6 +128,7 @@ public class ContactDatabase extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS '"+DB_TABLE+"'");
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS '"+DB_TABLE_CLIENT+"'");
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS '"+DB_TABLE_COMPANY+"'");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS '"+DB_TABLE_REQUEST+"'");
         onCreate(sqLiteDatabase);
     }
 
@@ -156,6 +192,26 @@ public class ContactDatabase extends SQLiteOpenHelper {
         return id;
     }
 
+    public long createRequestInDB(Request c) {
+        //Get Writable Database
+        SQLiteDatabase database = getWritableDatabase();
+        //Criar ContentValues Tabela Request
+        ContentValues values_request = new ContentValues();
+        values_request.put(COL_ID_LOGIN_CLIENT, c.getClient_idlogin());
+        values_request.put(COL_NAME_CLIENT, c.getClient_name());
+        values_request.put(COL_EMAIL_CLIENT, c.getClient_email());
+        values_request.put(COL_ID_LOGIN_COMPANY, c.getCompany_idlogin());
+        values_request.put(COL_NAME_COMPANY, c.getCompany_name());
+        values_request.put(COL_EMAIL_COMPANY, c.getCompany_email());
+        values_request.put(COL_CONTACT_COMPANY, c.getCompany_contact());
+        values_request.put(COL_DATE, c.getDate());
+        values_request.put(COL_HOUR, c.getHour());
+        values_request.put(COL_RESIDUO, c.getResiduo());
+        values_request.put(COL_DESC_RESIDUO, c.getDescresiduo());
+        long id = database.insert(DB_TABLE_REQUEST, null, values_request);
+        database.close();
+        return id;
+    }
     //Criar Metodo Insert com ID para as Tabelas
     public long insertContactInDB(Contact c){
         SQLiteDatabase database = getWritableDatabase();
@@ -213,6 +269,27 @@ public class ContactDatabase extends SQLiteOpenHelper {
         values_company.put(COL_DESC_RESIDUO, c.getDescresiduo());
         values_company.put(COL_REGION, c.getRegion());
         long id = database.insert(DB_TABLE_COMPANY, null, values_company);
+        database.close();
+        return id;
+    }
+    public long insertRequestInDB(Request c) {
+        //Get Writable Database
+        SQLiteDatabase database = getWritableDatabase();
+        //Criar ContentValues Tabela Request
+        ContentValues values_request = new ContentValues();
+        values_request.put(COL_ID, c.getId());
+        values_request.put(COL_ID_LOGIN_CLIENT, c.getClient_idlogin());
+        values_request.put(COL_NAME_CLIENT, c.getClient_name());
+        values_request.put(COL_EMAIL_CLIENT, c.getClient_email());
+        values_request.put(COL_ID_LOGIN_COMPANY, c.getCompany_idlogin());
+        values_request.put(COL_NAME_COMPANY, c.getCompany_name());
+        values_request.put(COL_EMAIL_COMPANY, c.getCompany_email());
+        values_request.put(COL_CONTACT_COMPANY, c.getCompany_contact());
+        values_request.put(COL_DATE, c.getDate());
+        values_request.put(COL_HOUR, c.getHour());
+        values_request.put(COL_RESIDUO, c.getResiduo());
+        values_request.put(COL_DESC_RESIDUO, c.getDescresiduo());
+        long id = database.insert(DB_TABLE_REQUEST, null, values_request);
         database.close();
         return id;
     }
@@ -326,6 +403,44 @@ public class ContactDatabase extends SQLiteOpenHelper {
         database.close();
         return companies;
     }
+    public ArrayList<Request> getRequestsFromDB(){
+        ArrayList<Request>requests = new ArrayList<>();
+        //Get ReadAble Database
+        SQLiteDatabase database = getReadableDatabase();
+        // Raw Query
+        Cursor cursor = database.query(DB_TABLE_REQUEST, null, null, null, null, null, null);
+        if (cursor.moveToFirst()){
+            do{
+                long id = cursor.getLong(cursor.getColumnIndexOrThrow(COL_ID));
+                String clientid = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_ID_LOGIN_CLIENT));
+                String clientname = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_NAME_CLIENT));
+                String clientemail = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_EMAIL_CLIENT));
+                String companyid = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_ID_LOGIN_COMPANY));
+                String companyname = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_NAME_COMPANY));
+                String companyemail = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_EMAIL_COMPANY));
+                String companycontact = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_CONTACT_COMPANY));
+                String date = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_DATE));
+                String hour = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_HOUR));
+                String residuo = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_RESIDUO));
+                String descresiduo = cursor.getString(
+                        cursor.getColumnIndexOrThrow(COL_DESC_RESIDUO));
+                requests.add(
+                        new Request(id, clientid, clientname,clientemail, companyid, companyname, companyemail, companycontact, date, hour, residuo, descresiduo));
+            }while (cursor.moveToNext());
+        }
+        database.close();
+        return requests;
+    }
 
     //Criar Metodo Update para as Tabelas
     public int updateContactInDB(Contact c){
@@ -390,6 +505,29 @@ public class ContactDatabase extends SQLiteOpenHelper {
         database.close();
         return count;
     }
+    public int updateRequestInDB(Request c) {
+        //Get Writable Database
+        SQLiteDatabase database = getWritableDatabase();
+        //Criar ContentValues Tabela Request
+        ContentValues values_request = new ContentValues();
+        values_request.put(COL_ID, c.getId());
+        values_request.put(COL_ID_LOGIN_CLIENT, c.getClient_idlogin());
+        values_request.put(COL_NAME_CLIENT, c.getClient_name());
+        values_request.put(COL_EMAIL_CLIENT, c.getClient_email());
+        values_request.put(COL_ID_LOGIN_COMPANY, c.getCompany_idlogin());
+        values_request.put(COL_NAME_COMPANY, c.getCompany_name());
+        values_request.put(COL_EMAIL_COMPANY, c.getCompany_email());
+        values_request.put(COL_CONTACT_COMPANY, c.getCompany_contact());
+        values_request.put(COL_DATE, c.getDate());
+        values_request.put(COL_HOUR, c.getHour());
+        values_request.put(COL_RESIDUO, c.getResiduo());
+        values_request.put(COL_DESC_RESIDUO, c.getDescresiduo());
+        String id = String.valueOf(c.getId());
+        int count = database.update(DB_TABLE_REQUEST, values_request,
+                COL_ID + "=?", new String[]{id} );
+        database.close();
+        return count;
+    }
 
     //Criar Metodo Remove para as Tabelas
     public int removeContactInDB(Contact c){
@@ -412,6 +550,14 @@ public class ContactDatabase extends SQLiteOpenHelper {
         SQLiteDatabase database = getWritableDatabase();
         String id = String.valueOf(c.getId());
         int count = database.delete(DB_TABLE_COMPANY,
+                COL_ID + "=?", new String[]{id});
+        database.close();
+        return count;
+    }
+    public int removeRequestInDB(Request c){
+        SQLiteDatabase database = getWritableDatabase();
+        String id = String.valueOf(c.getId());
+        int count = database.delete(DB_TABLE_REQUEST,
                 COL_ID + "=?", new String[]{id});
         database.close();
         return count;

@@ -16,6 +16,7 @@ public class DataModel {
     private ArrayList<Contact>contacts;
     private ArrayList<Client>clients;
     private ArrayList<Company>companies;
+    private ArrayList<Request>requests;
 
     private ContactDatabase database;
 
@@ -169,6 +170,56 @@ public class DataModel {
         );
         if (count == 1){
             companies.remove(pos);
+            return true;
+        }
+        return false;
+    }
+    public void createRequestDatabase(Context context){
+        database = new ContactDatabase(context);
+        requests = database.getRequestsFromDB();
+    }
+    public ArrayList<Request>getRequests(){
+        return requests;
+    }
+
+    public Request getRequest(int pos){
+        return requests.get(pos);
+    }
+    public int getRequestSize(){
+        return requests.size();
+    }
+    public boolean addRequest(Request c){
+        long id = database.createRequestInDB(c);
+        if (id > 0){
+            c.setId(id);
+            requests.add(c);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean insertRequest(Request c,int pos){
+        long id = database.insertRequestInDB(c);
+        if (id > 0){
+            requests.add(pos,c);
+            return true;
+        }
+        return false;
+    }
+    public boolean updateRequest(Request c, int pos){
+        int count = database.updateRequestInDB(c);
+        if (count == 1){
+            requests.set(pos,c);
+            return true;
+        }
+        return false;
+    }
+    public boolean removeRequest(int pos){
+        int count = database.removeRequestInDB(
+                getRequest(pos)
+        );
+        if (count == 1){
+            requests.remove(pos);
             return true;
         }
         return false;

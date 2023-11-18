@@ -44,9 +44,11 @@ public class ApresentacaoCliente extends AppCompatActivity {
         IdentHolder = extras.getString("EXTRA_USERID");
         Name.setText("Olá "+ NameHolder+"!");
     }
+
+    //Verificar se o Registro do Cliente já existe
     public void CheckingRegisterAlreadyExistsOrNot(){
 
-        // Abrindo SQLite database com permissoes de escrita.
+        // Abrindo SQLite database com permissoes de leitura.
         sqLiteDatabaseObj = database.getReadableDatabase();
 
         //System.out.println(EmailHolder);
@@ -79,7 +81,7 @@ public class ApresentacaoCliente extends AppCompatActivity {
 
     }
 
-    public void solicitarButtonOnClick(View v){
+    public void formClButtonOnClick(View v){
         CheckingRegisterAlreadyExistsOrNot();
         Intent intent = new Intent(ApresentacaoCliente.this, FormCliente.class);
         Bundle extras = new Bundle();
@@ -100,7 +102,7 @@ public class ApresentacaoCliente extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void listaSolicitacaoButtonOnClick(View v){
+    public void solicitarButtonOnClick(View v){
         Intent intent = new Intent(ApresentacaoCliente.this, FormPedidos.class);
         startActivity(intent);
     }

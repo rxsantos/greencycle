@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rowItemClient"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".controller.FormPedidos">
@@ -15,7 +16,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/solicitar_coleta_cliente"
         android:textAlignment="center"
-        android:textColor="#8BC34A"
+        android:textColor="#6ABD21"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +53,18 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         tools:ignore="VisualLintLongText" />
 
+    <View
+        android:id="@+id/view3"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="#6ABD21"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
     <EditText
         android:id="@+id/etPedidoColeta"
         android:layout_width="0dp"
@@ -80,10 +93,10 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/btRetirarColeta"
+        app:layout_constraintBottom_toTopOf="@+id/btnEnviarSolicitacao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPedidoColeta" />
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <RadioGroup
         android:id="@+id/radioGroup2"
@@ -139,7 +152,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/btRetirarColeta"
+        android:id="@+id/btnEnviarSolicitacao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -147,11 +160,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="#6ABD21"
-        android:text="Enviar Solicitação"
+        android:onClick="enviaSolicitacao"
+        android:text="@string/enviar_solicitacao_cliente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerViewPedidos"
-        tools:ignore="VisualLintButtonSize" />
+        tools:ignore="VisualLintButtonSize,TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

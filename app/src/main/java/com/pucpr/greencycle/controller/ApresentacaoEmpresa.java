@@ -47,7 +47,7 @@ public class ApresentacaoEmpresa extends AppCompatActivity {
 
     public void CheckingRegisterAlreadyExistsOrNot(){
 
-        // Abrindo SQLite database com permissoes de escrita.
+        // Abrindo SQLite database com permissoes de leitura.
         sqLiteDatabaseObj = database.getReadableDatabase();
 
         //System.out.println(EmailHolder);
@@ -79,7 +79,7 @@ public class ApresentacaoEmpresa extends AppCompatActivity {
         }
 
     }
-    public void retirarButtonOnClick(View v){
+    public void formEmpButtonOnClick(View v){
         CheckingRegisterAlreadyExistsOrNot();
         Intent intent = new Intent(ApresentacaoEmpresa.this, FormEmpresa.class);
         Bundle extras = new Bundle();
@@ -102,7 +102,7 @@ public class ApresentacaoEmpresa extends AppCompatActivity {
     }
 
 
-    public void listaRetirardasButtonOnClick(View v){
+    public void coletarButtonOnClick(View v){
         Intent intent = new Intent(ApresentacaoEmpresa.this, FormColetas.class);
         startActivity(intent);
     }

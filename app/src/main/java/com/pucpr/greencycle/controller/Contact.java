@@ -1,6 +1,7 @@
 package com.pucpr.greencycle.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -65,6 +66,7 @@ public class Contact extends AppCompatActivity {
                     RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(
                             Contact.this,DividerItemDecoration.VERTICAL
                     );
+                    recyclerView.setItemAnimator(new DefaultItemAnimator());
                     recyclerView.addItemDecoration(itemDecoration);
                     recyclerView.setVisibility(View.VISIBLE);
                     recyclerViewCliente.setVisibility(View.GONE);

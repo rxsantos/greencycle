@@ -29,7 +29,7 @@
         android:text="www.greencycle.com.br"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#03AE2D"
+        android:textColor="#6ABD21"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
