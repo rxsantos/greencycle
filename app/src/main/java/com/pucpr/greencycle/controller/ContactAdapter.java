@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,17 +34,22 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     public void setOnItemLongClickListener(OnItemLongClickListener longClickListener){
         this.longClickListener = longClickListener;
     }
+
+
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView textView1;
         TextView textView2;
         TextView textView3;
         TextView textView4;
+        Spinner spinner;
+
         public ViewHolder(View itemView){
             super(itemView);
             textView1 = itemView.findViewById(R.id.textView1);
             textView2 = itemView.findViewById(R.id.textView2);
             textView3 = itemView.findViewById(R.id.textView3);
             textView4 = itemView.findViewById(R.id.textView4);
+            spinner = (Spinner)itemView.findViewById(R.id.spinner);
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override

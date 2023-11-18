@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    android:background="#B8FFBB"
+    android:onClick="formEmpresaButtonOnClick"
     android:textAlignment="textStart"
     tools:context=".controller.FormEmpresa">
 
@@ -12,15 +14,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="#6ABD21"
+        android:onClick="formEmpresaButtonOnClick"
         android:text="@string/bt_salvar_emp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:ignore="TextContrastCheck,VisualLintButtonSize" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -66,6 +70,7 @@
                     android:text="@string/dados_da_empresa"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="#80B542"
                     android:textStyle="bold" />
 
                 <Space
@@ -83,32 +88,31 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="30dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/editTextNameEmp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/nome_empresa"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
                     android:minHeight="48dp"
-                    tools:ignore="TextContrastCheck" />
+                    android:textAlignment="textStart"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/editTextEmailEmp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
                     android:hint="@string/email_empresa"
-                    android:importantForAutofill="no"
-                    android:inputType="textEmailAddress"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    android:textAlignment="textStart"
+                    android:textSize="16sp"
+                    tools:ignore="TextContrastCheck" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -122,7 +126,8 @@
                     android:hint="@string/cnpj"
                     android:importantForAutofill="no"
                     android:inputType="text"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    tools:ignore="VisualLintTextFieldSize" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -138,7 +143,7 @@
                     android:inputType="phone"
                     android:minHeight="48dp"
                     android:phoneNumber="true"
-                    tools:ignore="Deprecated,TextContrastCheck" />
+                    tools:ignore="Deprecated,TextContrastCheck,VisualLintTextFieldSize" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -152,7 +157,8 @@
                     android:hint="@string/estado_empresa"
                     android:importantForAutofill="no"
                     android:inputType="text"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    tools:ignore="VisualLintTextFieldSize" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -166,7 +172,8 @@
                     android:hint="@string/cidade_empresa"
                     android:importantForAutofill="no"
                     android:inputType="text"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    tools:ignore="VisualLintTextFieldSize" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -180,7 +187,8 @@
                     android:hint="@string/endere_empresa"
                     android:importantForAutofill="no"
                     android:inputType="text"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    tools:ignore="VisualLintTextFieldSize" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -194,7 +202,8 @@
                     android:hint="@string/cep_empresa"
                     android:importantForAutofill="no"
                     android:inputType="textPostalAddress"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    tools:ignore="VisualLintTextFieldSize" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -209,22 +218,7 @@
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="48dp"
-                    tools:ignore="TextContrastCheck" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp" />
-
-                <EditText
-                    android:id="@+id/editTextResiduoEmp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/residuo_empresa"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    tools:ignore="TextContrastCheck" />
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -239,17 +233,76 @@
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="48dp"
-                    tools:ignore="TextContrastCheck" />
+                    android:onClick="formEmpresaButtonOnClick"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonEvidro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/vidro"
+                        android:textSize="12sp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonEplastico"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/plastico"
+                        android:textSize="12sp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonEmetal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/metal"
+                        android:textSize="12sp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonEpapel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/papel"
+                        android:textSize="12sp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonEoutros"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/outros" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/editTextResiduoEmp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/residuo_empresa"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine"
+                    android:minHeight="48dp"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="20dp" />
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-                </TableRow>
 
             </LinearLayout>
         </ScrollView>

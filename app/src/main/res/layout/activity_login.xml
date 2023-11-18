@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#009688"
-    android:backgroundTint="#C6FFC9"
+    android:background="#B8FFBB"
+    android:backgroundTint="#B8FFBB"
     tools:context=".controller.Login">
 
     <LinearLayout
@@ -33,12 +33,12 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="36dp" />
 
         <EditText
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/username"
             android:importantForAutofill="no"
@@ -59,7 +59,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="45dp" />
+            android:layout_height="59dp" />
 
         <Button
             android:id="@+id/loginButton"
@@ -80,7 +80,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="45dp" />
+            android:layout_height="51dp" />
 
         <Button
             android:id="@+id/cadastrarButton"
@@ -96,7 +96,7 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="93dp"
+            android:layout_height="wrap_content"
             android:text="@string/ainda_nao_tem_cadastro"
             android:textAlignment="center" />
 

@@ -1,9 +1,11 @@
 package com.pucpr.greencycle.model;
 
+import android.util.Log;
+
 public class Client {
     private long id;
 
-    private String idlogin, name, email, cpf, phone, state,  city, address, zipcode, country, residuo;
+    private String idlogin, name, email, cpf, phone, state, city, address, zipcode, country, residuo;
 
     public Client(String idlogin, String name, String email, String cpf, String phone, String state, String city, String address, String zipcode, String country, String residuo) {
         this.idlogin = idlogin;
@@ -129,4 +131,10 @@ public class Client {
     public void setResiduo(String residuo) {
         this.residuo = residuo;
     }
+
+    public void print(){
+        Log.v("SQLDatabase", "Contact["+id+"]:" + " Idlogin: " +idlogin+ " Nome: " +name+" Email: "+email+ " CPF: "+cpf+ " Cidade: " +city+ " Estado: " +state+
+                " Endereço: " +address+ " Residio: " + residuo);
+    }
+
 }

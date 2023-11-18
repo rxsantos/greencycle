@@ -1,6 +1,8 @@
 package com.pucpr.greencycle.model;
 
 
+import android.util.Log;
+
 public class Company {
 
     private long id;
@@ -140,5 +142,9 @@ public class Company {
 
     public void setRegion(String region) {
         this.region = region;
+    }
+    public void print(){
+        Log.v("SQLDatabase", "Contact["+id+"]:" + " Idlogin: " +idlogin+ " Nome: " +name+" Email: "+email+ " CPF: "+cnpj+ " Cidade: " +city+ " Estado: " +state+
+                " Endereço: " +address+ " Residio: " + residuo+ " Regiao: " +region);
     }
 }
