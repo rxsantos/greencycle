@@ -47,7 +47,7 @@ public class EmpresaAdapter extends RecyclerView.Adapter<EmpresaAdapter.ViewHold
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View companyView = inflater.inflate(R.layout.recycler_view_company,
+        View companyView = inflater.inflate(R.layout.recycler_view_lista_empresas,
                 parent,
                 false);
         return new ViewHolder(companyView);

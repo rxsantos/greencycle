@@ -91,7 +91,7 @@ public class FormPedidosAdapter extends RecyclerView.Adapter<FormPedidosAdapter.
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View pedidosView = inflater.inflate(
-                R.layout.recycler_view_pedidos,
+                R.layout.recycler_view_company_available,
                 parent,
                 false);
 

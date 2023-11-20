@@ -135,7 +135,7 @@ public class Request {
     public void print(){
         Log.v("SQLDatabase", "Contact["+id+"]:" + " ClientId: " +client_idlogin+ " Nome Cliente: " +client_name+
                 " Email Client: "+client_email+ " CompanyId: "+company_idlogin+ " Nome Empresa: "+company_name+
-                " Contato Empresa: " +company_contact+ " Data: " +date+ " Hora: " +hour+ " Residuo: " + residuo+
-                " DescResiduo: "+descresiduo);
+                " Email Empresa: "+company_email+" Contato Empresa: " +company_contact+ " Data: " +date+
+                " Hora: " +hour+ " Residuo: " + residuo+ " DescResiduo: "+descresiduo);
     }
 }

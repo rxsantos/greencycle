@@ -48,7 +48,7 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View clientView = inflater.inflate(R.layout.recycler_view_client,
+        View clientView = inflater.inflate(R.layout.recycler_view_lista_clientes,
                 parent,
                 false);
         return new ViewHolder(clientView);

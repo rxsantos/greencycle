@@ -1,6 +1,7 @@
 package com.pucpr.greencycle.controller;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +13,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.pucpr.greencycle.R;
 import com.pucpr.greencycle.model.Client;
+import com.pucpr.greencycle.model.Company;
 import com.pucpr.greencycle.model.DataModel;
+import com.pucpr.greencycle.model.Request;
 
 public class FormColetasAdapter extends RecyclerView.Adapter<FormColetasAdapter.ViewHolder>{
+    public interface OnItemClickListener{
+        void onItemClick(View view, int position);
+    }
+    public interface OnItemLongClickListener{
+        boolean onItemLongClick(View view,int position);
+    }
+    private FormColetasAdapter.OnItemClickListener clickListener;
+    private FormColetasAdapter.OnItemLongClickListener longClickListener;
+    public void setOnItemClickListener(FormColetasAdapter.OnItemClickListener clickListener){
+        this.clickListener = clickListener;
+    }
+    public void setOnItemLongClickListener(FormColetasAdapter.OnItemLongClickListener longClickListener){
+        this.longClickListener = longClickListener;
+    }
+
+    private Context context;
+    int selectionPosition = -1, index;
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView tvColetaName;
         TextView tvColetaCpf;
@@ -26,6 +46,7 @@ public class FormColetasAdapter extends RecyclerView.Adapter<FormColetasAdapter.
         TextView tvColetaState;
         //TextView tvColetaCountry;
         TextView tvColetaResiduo;
+        TextView tvColetaDescResiduo;
         public ViewHolder(View coletaView){
             super(coletaView);
             tvColetaName = coletaView.findViewById(R.id.tvColetaName);
@@ -38,6 +59,27 @@ public class FormColetasAdapter extends RecyclerView.Adapter<FormColetasAdapter.
             tvColetaState = coletaView.findViewById(R.id.tvColetaEstado);
             //tvColetaCountry = coletaView.findViewById(R.id.tvColetaCountry);
             tvColetaResiduo = coletaView.findViewById(R.id.tvColetaResiduo);
+            tvColetaDescResiduo = coletaView.findViewById(R.id.tvColetaDescResiduo);
+
+            coletaView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (clickListener != null) {
+                        clickListener.onItemClick(view, getAdapterPosition());
+                        selectionPosition = getAdapterPosition();
+                    }
+                }
+            });
+            coletaView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    if (longClickListener != null){
+                        return longClickListener.onItemLongClick(view, getAdapterPosition());
+
+                    }
+                    return false;
+                }
+            });
 
         }
 
@@ -49,7 +91,7 @@ public class FormColetasAdapter extends RecyclerView.Adapter<FormColetasAdapter.
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View coletaView = inflater.inflate(
-                R.layout.recycler_view_coletas,
+                R.layout.recycler_view_client_requests_available,
                 parent,
                 false);
         return new ViewHolder(coletaView);
@@ -57,22 +99,40 @@ public class FormColetasAdapter extends RecyclerView.Adapter<FormColetasAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Client c = DataModel.getInstance().getClient(position);
-        holder.tvColetaName.setText(c.getName());
+        //Client c = DataModel.getInstance().getClient(position);
+        Request r = DataModel.getInstance().getRequest(position);
+        holder.tvColetaName.setText(r.getClient_name());
         //holder.tvColetaCpf.setText(c.getCpf());
-        holder.tvColetaEmail.setText(c.getEmail());
-        holder.tvColetaPhone.setText(c.getPhone());
-        holder.tvColetaAddress.setText(c.getAddress());
-        holder.tvColetaZipcode.setText(c.getZipcode());
-        holder.tvColetaCity.setText(c.getCity());
-        holder.tvColetaState.setText(c.getState());
+        //holder.tvColetaCpf.setText(c.getCpf());
+        holder.tvColetaEmail.setText(r.getClient_email());
+        //holder.tvColetaPhone.setText(c.getPhone());
+        //holder.tvColetaAddress.setText(c.getAddress());
+        //holder.tvColetaZipcode.setText(c.getZipcode());
+        //holder.tvColetaCity.setText(c.getCity());
+        //holder.tvColetaState.setText(c.getState());
         //holder.tvColetaCountry.setText(c.getCountry());
-        holder.tvColetaResiduo.setText(c.getResiduo());
-        Log.v("Coleta: ", "Pos["+position+"]:"+c.getName());
+        holder.tvColetaResiduo.setText(r.getResiduo());
+        holder.tvColetaDescResiduo.setText(r.getDescresiduo());
+        Log.v("Coleta: ", "Pos["+position+"]:"+r.getClient_name()+" Desc_Residuo: " +r.getDescresiduo());
+        if (selectionPosition == position){
+            //holder.itemView.setBackgroundColor(Color.rgb(106,189,33));
+            holder.itemView.setBackgroundColor(Color.rgb(168,232,185));
+        }else {
+            holder.itemView.setBackgroundColor(Color.TRANSPARENT);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return DataModel.getInstance().getClientSize();
+        return DataModel.getInstance().getRequestSize();
     }
+    public String getSelected(){
+        if (selectionPosition != -1){
+            Request c = DataModel.getInstance().getRequest(selectionPosition);
+            return c.getClient_email();
+        }
+        return null;
+    }
+
+
 }

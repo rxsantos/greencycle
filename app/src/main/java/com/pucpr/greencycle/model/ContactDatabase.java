@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class ContactDatabase extends SQLiteOpenHelper {
     //Iniciar Variaveis
     private static final String DB_NAME = "contacts.sqlite";
-    private static final int DB_VERSION = 6;
+    private static final int DB_VERSION = 7;
     private static final String DB_TABLE = "Contact";
     private static final String DB_TABLE_CLIENT = "Cliente";
     private static final String DB_TABLE_COMPANY = "Empresa";

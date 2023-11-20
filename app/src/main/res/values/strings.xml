@@ -16,6 +16,7 @@
     <string name="login_success">Login realizado com sucesso!</string>
     <string name="attention">Atenção!!!!</string>
     <string name="empty_contact_alert_msg">As alterações não serão salvas. Você realmente deseja sair?</string>
+    <string name="empty_request_alert_msg">O agendamento não será salvo. Você realmente deseja sair?</string>
     <string name="entrar">ENTRAR</string>
     <string name="cadastrar">CADASTRAR</string>
     <string name="ainda_nao_tem_cadastro">Ainda não tem cadastro?</string>

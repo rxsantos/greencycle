@@ -58,7 +58,7 @@ public class ApresentacaoCliente extends AppCompatActivity {
             if (cursor.isFirst()){
                 cursor.moveToFirst();
 
-                // Storing Password associated with entered email.
+                // Storing data associated with entered email Cliente table.
                 IdHolder = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
                 idlogin = cursor.getString(cursor.getColumnIndexOrThrow("client_idlogin"));
                 NameHolder = cursor.getString(cursor.getColumnIndexOrThrow("name"));
@@ -103,7 +103,13 @@ public class ApresentacaoCliente extends AppCompatActivity {
     }
 
     public void solicitarButtonOnClick(View v){
+        CheckingRegisterAlreadyExistsOrNot();
         Intent intent = new Intent(ApresentacaoCliente.this, FormPedidos.class);
+        Bundle extras = new Bundle();
+        extras.putInt("EXTRA_ID",IdHolder);
+        extras.putString("EXTRA_NAME",NameHolder);
+        extras.putString("EXTRA_EMAIL",EmailHolder);
+        intent.putExtras(extras);
         startActivity(intent);
     }
 }

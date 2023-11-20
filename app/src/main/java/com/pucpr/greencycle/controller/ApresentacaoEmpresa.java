@@ -103,7 +103,13 @@ public class ApresentacaoEmpresa extends AppCompatActivity {
 
 
     public void coletarButtonOnClick(View v){
+        CheckingRegisterAlreadyExistsOrNot();
         Intent intent = new Intent(ApresentacaoEmpresa.this, FormColetas.class);
+        Bundle extras = new Bundle();
+        extras.putInt("EXTRA_ID",IdHolder);
+        extras.putString("EXTRA_NAME",NameHolder);
+        extras.putString("EXTRA_EMAIL",EmailHolder);
+        intent.putExtras(extras);
         startActivity(intent);
     }
 }
